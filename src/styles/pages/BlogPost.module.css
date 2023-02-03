@@ -1,0 +1,106 @@
+.sectionOne {
+	h1 {
+		font-size: var(--font-size-section-title);
+		font-weight: 700;
+		line-height: 1.2;
+		margin-bottom: rfs(2rem);
+		text-align: center;
+		font-family: var(--font-family-heading);
+	}
+}
+
+.sectionTwo {
+	display: flex;
+	gap: rfs(5rem);
+	justify-content: center;
+	align-items: center;
+	max-width: rfs(175rem);
+	margin: auto;
+	> .col .imageContainer {
+		position: relative;
+		width: rfs(100rem);
+		height: rfs(50rem);
+		border-radius: var(--default-border-radius);
+		overflow: hidden;
+		box-shadow: var(--blog-image-box-shadow);
+		img {
+			object-fit: cover;
+		}
+	}
+	.col:nth-child(2) {
+		display: flex;
+		flex-direction: column;
+		gap: rfs(2rem);
+		.row {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: rfs(5rem);
+			.iconContainer {
+				flex-basis: rfs(10rem);
+				display: flex;
+				justify-content: center;
+			}
+			.contentContainer {
+				flex-basis: rfs(50rem);
+			}
+		}
+		.authorContainer {
+			.contentContainer {
+				display: flex;
+				flex-direction: column;
+				span {
+					font-weight: 600;
+					margin-bottom: rfs(0.5rem);
+				}
+				p {
+					font-size: rfs(0.75rem);
+				}
+			}
+			.iconContainer {
+				.avatarContainer {
+					position: relative;
+					width: rfs(7.5rem);
+					height: rfs(7.5rem);
+					background-color: var(--color-light-gray);
+					border-radius: var(--avatar-border-radius);
+					overflow: hidden;
+					img {
+						object-fit: cover;
+					}
+				}
+			}
+		}
+	}
+}
+
+.sectionThree {
+	padding-top: rfs(5rem);
+	.contentContainer {
+		max-width: rfs(160rem);
+		margin: auto;
+		h3 {
+			font-family: var(--font-family-heading);
+			font-weight: 600;
+			font-size: var(--font-size-subtitle);
+			color: var(--color-gray);
+			line-height: rfs(1.5rem);
+			padding-bottom: rfs(0.5rem);
+		}
+		p {
+			font-family: var(--font-family-content);
+			color: var(--color-medium-gray);
+			line-height: rfs(1.5rem);
+			padding-bottom: rfs(1rem);
+			font-size: var(--font-size-body);
+		}
+        ul {
+            padding-bottom: rfs(1rem);
+            padding-left: rfs(1rem);
+            li {
+                list-style-type: disc;
+                list-style-position: inside;
+            }
+        }
+	}
+}
