@@ -1,6 +1,5 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 :root {
 	--color-primary: #f00;
@@ -30,15 +29,21 @@
 	--blog-image-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
 		rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 	--default-hover-transition: all 0.3s ease-in-out;
+	--sizing-super-xxl: rfs(150rem);
+	--sizing-super-xl: rfs(100rem);
+	--sizing-super-large: rfs(65rem);
+	--sizing-super: rfs(45rem);
 	--sizing-xxxxl: rfs(40rem);
 	--sizing-xxxl: rfs(25rem);
 	--sizing-xxl: rfs(10rem);
 	--sizing-xl: rfs(7.5rem);
+	--sizing-hamburger: rfs(5.5rem);
 	--sizing-large: rfs(5rem);
 	--sizing-medium: rfs(2.5rem);
 	--sizing-small: rfs(1.5rem);
 	--sizing-xs: rfs(1rem);
 	--sizing-xxs: rfs(0.75rem);
+	--sizing-xxxs: rfs(0.5rem);
 }
 
 body #section {

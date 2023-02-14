@@ -1,7 +1,7 @@
 // Queries for Blog Posts
 
-export const AllPostData = `
-query BlogPosts {
+export const AllPostsQuery = `
+query Posts {
   blogPosts {
     data {
       id

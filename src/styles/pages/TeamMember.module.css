@@ -7,6 +7,7 @@
 	justify-content: center;
     align-items: center;
 	gap: rfs(5rem);
+	margin-top: var(--sizing-xxl);
 	.col {
 		flex-basis: rfs(100rem);
 		.imageWrapper {

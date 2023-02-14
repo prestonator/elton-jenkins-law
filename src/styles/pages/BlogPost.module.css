@@ -1,11 +1,12 @@
 .sectionOne {
+	margin-top: rfs(15rem);
 	h1 {
 		font-size: var(--font-size-large);
-		font-weight: 700;
+		font-weight: 500;
 		line-height: 1.2;
 		margin-bottom: rfs(2rem);
 		text-align: center;
-		font-family: var(--font-family-heading);
+		font-family: var(--font-family-fancy);
 	}
 }
 
