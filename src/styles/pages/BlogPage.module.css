@@ -15,7 +15,7 @@
 				color: var(--color-secondary);
 				font-family: var(--font-family-heading);
 				text-transform: uppercase;
-				font-size: var(--font-size-subtitle);
+				font-size: var(--font-size-medium);
 			}
 			span {
 				color: var(--color-white);

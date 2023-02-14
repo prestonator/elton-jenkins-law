@@ -1,6 +1,6 @@
 .sectionOne {
 	h1 {
-		font-size: var(--font-size-section-title);
+		font-size: var(--font-size-large);
 		font-weight: 700;
 		line-height: 1.2;
 		margin-bottom: rfs(2rem);
@@ -82,7 +82,7 @@
 		h3 {
 			font-family: var(--font-family-heading);
 			font-weight: 600;
-			font-size: var(--font-size-subtitle);
+			font-size: var(--font-size-medium);
 			color: var(--color-gray);
 			line-height: rfs(1.5rem);
 			padding-bottom: rfs(0.5rem);

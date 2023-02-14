@@ -26,7 +26,7 @@
                 background-color: var(--color-white);
                 padding: rfs(1rem) 0;
 				h1 {
-                    font-size: var(--font-size-xl-title);
+                    font-size: var(--font-size-xl);
 					&::after {
 						content: "|";
                         margin: 0 rfs(1rem);
@@ -38,7 +38,7 @@
 			}
             .textMeta {
                 animation: textColor 2s ease forwards;
-                font-size: var(--font-size-subtitle);
+                font-size: var(--font-size-medium);
                 display: flex;
                 flex-direction: row;
                 justify-content: space-around;

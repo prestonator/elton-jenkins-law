@@ -52,8 +52,8 @@ query GetBlogPostSlug($filters: BlogPostFiltersInput) {
     blogPosts(filters: $filters) {
       data {
         attributes {
-          Title
-          Content
+          title
+          content
           slug
           datePublished
           image {
@@ -153,6 +153,8 @@ query Query($filters: AuthorFiltersInput) {
         position
         phone
         email
+        bio
+        shortBio
         longBio
         location
         headshot {
@@ -189,6 +191,8 @@ query Authors {
         position
         phone
         email
+        bio
+        shortBio
         longBio
         location
         headshot {

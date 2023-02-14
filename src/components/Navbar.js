@@ -55,6 +55,7 @@ export default async function Navbar() {
 						src={urlBuilder(`${logo.attributes.url}`)}
 						alt={logo.attributes.alternativeText}
 						fill
+						sizes="(max-width: 500px) 100vw, (max-width: 1000px) 50vw, auto"
 					/>
 				</div>
 			</li>

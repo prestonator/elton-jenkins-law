@@ -27,7 +27,7 @@ export default async function Page({ params }) {
 
 	return (
 		<>
-			<section className={styles.sectionOne}>
+			<section className={styles.sectionOne} id="section">
 				<div className={styles.col}>
 					<div className={styles.imageWrapper}>
 						<Image

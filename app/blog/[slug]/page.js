@@ -76,7 +76,7 @@ export default async function Page({ params }) {
 			</section>
 			<section className={styles.sectionThree}>
 				<div className={styles.contentContainer}>
-					<ReactMarkdown>{`${postRes.Content}`}</ReactMarkdown>
+					<ReactMarkdown>{`${postRes.content}`}</ReactMarkdown>
 				</div>
 			</section>
 		</>

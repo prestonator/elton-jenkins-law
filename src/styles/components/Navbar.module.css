@@ -23,7 +23,7 @@
 			}
 		}
 		.menuItem {
-			font-family: var(--font-family-nav);
+			font-family: var(--font-family-fancy);
 			font-size: var(--font-size-title);
 			a.active {
 				color: var(--color-gold);

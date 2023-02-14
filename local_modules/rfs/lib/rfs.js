@@ -8,7 +8,7 @@ const BASE_RFS_ERROR = 'baseValue option is invalid, it should be set in `px` or
 module.exports = class {
   constructor(opts) {
     const defaultOptions = {
-      baseValue: 20,
+      baseValue: 16,
       unit: 'rem',
       breakpoint: 4000,
       breakpointUnit: 'px',
