@@ -1,5 +1,8 @@
 import { getPostData } from "@/src/api/fetchData/fetchPost";
-import { getMediaData, getMediaDataWithUrl } from "@/src/api/fetchData/fetchMedia";
+import {
+	getMediaData,
+	getMediaDataWithUrl,
+} from "@/src/api/fetchData/fetchMedia";
 import styles from "@/src/styles/pages/BlogPage.module.css";
 import BlogCard from "@/src/components/BlogCard";
 import urlBuilder from "@/src/utils/imageUrl";
@@ -8,7 +11,6 @@ export default async function Page() {
 	const { allPostData } = await getPostData();
 	const [blogBanner] = await getMediaData([7]);
 	const { fullUrl: blogBannerUrl } = blogBanner;
-    
 	const halfLength = Math.ceil(allPostData.length / 2);
 	const firstHalf = allPostData.slice(0, halfLength);
 	const secondHalf = allPostData.slice(halfLength);

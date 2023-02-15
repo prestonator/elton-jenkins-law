@@ -95,9 +95,9 @@ export default async function Home() {
 			<section className={`${styles.sectionThree} ${styles.egg}`}>
 				<div className={`${styles.col} ${styles.wrapper}`}>
 					<div className={styles.row}>
-					<TeamCardComponent headshot={eltonHeadshot} name={eltonName} position={eltonPosition} shortBio={eltonShortBio} bio={eltonBio} phone={eltonPhone} email={eltonEmail} />
-					<TeamCardComponent headshot={ericHeadshot} name={ericName} position={ericPosition} shortBio={ericShortBio} bio={ericBio} phone={ericPhone} email={ericEmail} />
-					<TeamCardComponent headshot={gregHeadshot} name={gregName} position={gregPosition} shortBio={gregShortBio} bio={gregBio} phone={gregPhone} email={gregEmail} />
+					<TeamCardComponent headshot={eltonHeadshot} alt={eltonHeadshotAlt} name={eltonName} position={eltonPosition} shortBio={eltonShortBio} bio={eltonBio} phone={eltonPhone} email={eltonEmail} />
+					<TeamCardComponent headshot={ericHeadshot} alt={ericHeadshotAlt} name={ericName} position={ericPosition} shortBio={ericShortBio} bio={ericBio} phone={ericPhone} email={ericEmail} />
+					<TeamCardComponent headshot={gregHeadshot} alt={gregHeadshotAlt} name={gregName} position={gregPosition} shortBio={gregShortBio} bio={gregBio} phone={gregPhone} email={gregEmail} />
 					</div>
 				</div>
 			</section>

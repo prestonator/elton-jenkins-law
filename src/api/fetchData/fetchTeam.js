@@ -1,9 +1,9 @@
 import { fetchData } from "@/src/api/server";
-import { TeamMemberById } from "@/src/api/queries";
+import { StaffByIdQuery } from "@/src/api/queries";
 
 export const getTeam = async (slug) => {
 	const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
-	const res = await fetchData(TeamMemberById, {
+	const res = await fetchData(StaffByIdQuery, {
 		filters: { slug: { contains: slug } },
 	}).catch((err) => {
 		console.error(`Error fetching team member data for slug ${slug}:`, err);

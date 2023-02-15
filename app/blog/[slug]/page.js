@@ -1,8 +1,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import { getPostData } from "@/src/api/fetchData/fetchPost";
-import { PostFilterBySlug } from "@/src/api/queries";
-import { fetchData } from "@/src/api/server";
+import { getPostBySlug } from "@/src/api/fetchData/fetchPostBySlug";
 import {
 	HiOutlineSquares2X2,
 	HiOutlineChatBubbleOvalLeft,
@@ -10,8 +9,6 @@ import {
 } from "react-icons/hi2";
 import Image from "next/image";
 import styles from "@/src/styles/pages/BlogPost.module.css";
-import formatDate from "@/src/utils/formatDate";
-import urlBuilder from "@/src/utils/imageUrl";
 
 export async function generateStaticParams() {
 	const { allPostData } = await getPostData();
@@ -22,23 +19,19 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }) {
-	const postRes = await fetchData(PostFilterBySlug, {
-		filters: { slug: { contains: params.slug } },
-	}).then((res) => {
-		return res.data.blogPosts.data[0].attributes;
-	});
+	const postRes = await getPostBySlug(params.slug);
 
 	return (
 		<>
 			<section className={styles.sectionOne}>
-				<h1>{postRes.title}</h1>
+				<h1>{postRes.postTitle}</h1>
 			</section>
 			<section className={styles.sectionTwo}>
 				<div className={styles.col}>
 					<div className={styles.imageContainer}>
 						<Image
-							src={urlBuilder(`${postRes.image.data.attributes.url}`)}
-							alt={postRes.image.data.attributes.alternativeText}
+							src={postRes.imageUrl}
+							alt={postRes.imageAlt}
 							fill
 							priority="high"
 						/>
@@ -49,21 +42,16 @@ export default async function Page({ params }) {
 						<div className={styles.iconContainer}>
 							<div className={styles.avatarContainer}>
 								<Image
-									src={urlBuilder(
-										`${postRes.author.data.attributes.avatar.data.attributes.url}`
-									)}
-									alt={
-										postRes.author.data.attributes.avatar.data.attributes
-											.alternativeText
-									}
+									src={postRes.avatarUrl}
+									alt={postRes.avatarAlt}
 									fill
 									sizes={`(max-width: 1000px) 100vw, 1000px`}
 								/>
 							</div>
 						</div>
 						<div className={styles.contentContainer}>
-							<span>Written by {postRes.author.data.attributes.name}</span>
-							<p>{postRes.author.data.attributes.bio}</p>
+							<span>Written by {postRes.authorName}</span>
+							<p>{postRes.authorBio}</p>
 						</div>
 					</div>
 					<div className={`${styles.row} ${styles.categoryContainer}`}>
@@ -71,9 +59,7 @@ export default async function Page({ params }) {
 							<HiOutlineSquares2X2 />
 						</div>
 						<div className={styles.contentContainer}>
-							{postRes.categories.data
-								.map((item) => item.attributes.category)
-								.join(" | ")}
+							{postRes.categories.join(" | ")}
 						</div>
 					</div>
 					<div className={`${styles.row} ${styles.commentsContainer}`}>
@@ -87,14 +73,14 @@ export default async function Page({ params }) {
 							<HiOutlineCalendar />
 						</div>
 						<div className={styles.contentContainer}>
-							{formatDate(`${postRes.datePublished}`)}
+							{postRes.publishDate}
 						</div>
 					</div>
 				</div>
 			</section>
 			<section className={styles.sectionThree}>
 				<div className={styles.contentContainer}>
-					<ReactMarkdown>{`${postRes.content}`}</ReactMarkdown>
+					<ReactMarkdown>{`${postRes.postContent}`}</ReactMarkdown>
 				</div>
 			</section>
 		</>

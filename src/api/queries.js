@@ -61,7 +61,7 @@ query Posts {
   }
 }`;
 
-export const PostFilterBySlug = `
+export const PostBySlugQuery = `
 query GetBlogPostSlug($filters: BlogPostFiltersInput) {
     blogPosts(filters: $filters) {
       data {
@@ -123,7 +123,7 @@ query RenderNavigation($navigationIdOrSlug: String!) {
 
 // queries for the team page
 
-export const TeamMemberById = `
+export const StaffByIdQuery = `
 query Query($filters: AuthorFiltersInput) {
   authors(filters: $filters) {
     data {
@@ -161,7 +161,7 @@ query Query($filters: AuthorFiltersInput) {
 }
 `;
 
-export const TeamMemberData = `
+export const StaffQuery = `
 query Authors {
   authors {
     data {
@@ -192,24 +192,6 @@ query Authors {
           tabThreeContent
           tabFour
           tabFourContent
-        }
-      }
-    }
-  }
-}`;
-
-export const HeadshotQuery = `
-query Authors($filters: AuthorFiltersInput) {
-  authors(filters: $filters) {
-    data {
-      attributes {
-        headshot {
-          data {
-            attributes {
-              url
-              alternativeText
-            }
-          }
         }
       }
     }

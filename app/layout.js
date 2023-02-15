@@ -23,7 +23,6 @@ export const metadata = {
 export default async function RootLayout({ children }) {
 	return (
 		<html lang="en">
-			<head />
 			<body>
 				<RenderNav>
 					<Navbar />
