@@ -51,3 +51,7 @@
 body #section {
 	margin-top: rfs(10rem);
 }
+
+body {
+	background-color: #f8f8f8;
+}
