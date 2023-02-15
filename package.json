@@ -22,9 +22,12 @@
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
+    "@types/react": "^18.0.28",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
+    "react-is": ">= 16.8.0",
     "rfs": "link:./local_modules/rfs/",
-    "tailwindcss": "^3.2.4"
+    "tailwindcss": "^3.2.4",
+    "typescript": ">=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta"
   }
 }
