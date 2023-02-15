@@ -1,26 +1,21 @@
-import { fetchData } from "@/src/api/server";
-import { LeftNavItems, RightNavItems, MediaQuery } from "../api/queries";
+import { getMediaData } from "@/src/api/fetchData/fetchMedia";
+import { getNavData } from "@/src/api/fetchData/fetchNavItems";
 import Link from "next/link";
 import styles from "@/src/styles/components/Navbar.module.css";
 import Image from "next/image";
-import urlBuilder from "../utils/imageUrl";
 import { IoIosArrowForward } from "react-icons/io";
 
 
 export default async function Navbar() {
-	const leftNav = (await fetchData(LeftNavItems)).data.renderNavigation;
-	const rightNav = (await fetchData(RightNavItems)).data.renderNavigation;
-	const logo = (
-		await fetchData(MediaQuery, {
-			uploadFileId: 6,
-		})
-	).data.uploadFile.data;
-
+	const leftNav = await getNavData("left-navigation");
+	const rightNav = await getNavData("right-navigation");
+	const [logo] = await getMediaData([6]);
+	const { fullUrl: logoUrl, altText: logoAlt } = logo;
 
 	return (
 		<ul className={styles.navContainer}>
 			{leftNav.map((item) => (
-				<li key={item.id} className={`${styles.menuItem}`}>
+				<li key={item.path} className={`${styles.menuItem}`}>
 					<Link href={item.path}>{item.title}</Link>
 
 					{item.title === "Our Team" && (
@@ -52,8 +47,8 @@ export default async function Navbar() {
 			<li className={`${styles.menuItem} ${styles.menuItemLogo}`}>
 				<div className={styles.logoWrapper}>
 					<Image
-						src={urlBuilder(`${logo.attributes.url}`)}
-						alt={logo.attributes.alternativeText}
+						src={logoUrl}
+						alt={logoAlt}
 						fill
 						sizes="(max-width: 500px) 100vw, (max-width: 1000px) 50vw, auto"
 					/>
@@ -61,7 +56,7 @@ export default async function Navbar() {
 			</li>
 
 			{rightNav.map((item) => (
-				<li key={item.id} className={`${styles.menuItem}`}>
+				<li key={item.path} className={`${styles.menuItem}`}>
 					<Link href={item.path}>{item.title}</Link>
 					{item.title === "Blog" && (
 						<>

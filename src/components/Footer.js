@@ -11,8 +11,8 @@ import urlBuilder from "../utils/imageUrl";
 import Scheduler from "./Schedule";
 
 export default async function Footer() {
-	const mapData = await getMediaData(22);
-	const mapUrl = urlBuilder(mapData.attributes.url);
+	const [mapData] = await getMediaData([22]);
+	const { fullUrl: mapUrl } = mapData;
 	return (
 		<footer>
 			<div

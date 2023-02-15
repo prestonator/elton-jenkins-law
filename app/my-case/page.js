@@ -2,13 +2,11 @@ import { getMediaData } from "@/src/api/fetchData/fetchMedia";
 import styles from "@/src/styles/pages/MyCase.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import urlBuilder from "@/src/utils/imageUrl";
 import ButtonPrimary from "@/src/components/PrimaryButton";
 
 export default async function Page() {
-	const myCaseData = await getMediaData(12);
-	const myCaseLogoUrl = myCaseData.attributes.url;
-	const myCaseLogoAlt = myCaseData.attributes.alternativeText;
+	const [myCaseData] = await getMediaData([12]);
+	const { fullUrl: myCaseLogoUrl, altText: myCaseLogoAlt } = myCaseData;
 
 	return (
 		<>
@@ -17,7 +15,7 @@ export default async function Page() {
 					<div className={styles.imageWrapper}>
 						<Link href="https://mycase.com/login">
 							<Image
-								src={urlBuilder(`${myCaseLogoUrl}`)}
+								src={myCaseLogoUrl}
 								alt={myCaseLogoAlt}
 								fill
 								className={styles.image}

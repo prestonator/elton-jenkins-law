@@ -1,5 +1,6 @@
 @tailwind base;
-
+@tailwind components;
+@tailwind utilities;
 
 :root {
 	--color-primary: #f00;
@@ -9,6 +10,7 @@
 	--color-gray: #333;
 	--color-medium-gray: #666;
 	--color-light-gray: #ddd;
+	--color-off-white: #f5f5f5;
 	--color-black: #000;
 	--color-accent: #800000;
 	--color-low-opacity-black: rgb(0 0 0 / 5%);

@@ -1,8 +1,7 @@
 import styles from "./page.module.css";
 import Image from "next/image";
-import urlBuilder from "@/src/utils/imageUrl";
 import ButtonPrimary from "@/src/components/PrimaryButton";
-import { getTeamData } from "@/src/api/fetchData/fetchTeamData";
+import { getTeam } from "@/src/api/fetchData/fetchTeam";
 import { getMediaData } from "@/src/api/fetchData/fetchMedia";
 import ReactMarkdown from "react-markdown";
 import FeatureCard from "@/src/components/FeatureCard";
@@ -10,12 +9,41 @@ import { BsTelephone, BsCashStack, BsHouseDoor } from "react-icons/bs";
 import { GiHandcuffs } from "react-icons/gi";
 import { MdFamilyRestroom } from "react-icons/md";
 import { AiOutlineStop, AiOutlineWarning } from "react-icons/ai";
+import TeamCardComponent from "@/src/components/TeamCard";
 
 export default async function Home() {
-	const tableData = await getMediaData(8);
-	const eltonData = await getTeamData("elton-jenkins");
-	const ericData = await getTeamData("eric-kroier");
-	const gregData = await getTeamData("greg-milstead");
+	const [tableData] = await getMediaData([8]);
+	const { fullUrl: tableUrl, altText: tableAlt } = tableData;
+	const {
+		headshotUrl: eltonHeadshot,
+		headshotAlt: eltonHeadshotAlt,
+		staffName: eltonName,
+		staffPosition: eltonPosition,
+		staffEmail: eltonEmail,
+		staffPhone: eltonPhone,
+		staffBio: eltonBio,
+		staffShortBio: eltonShortBio,
+	} = await getTeam("elton-jenkins");
+	const {
+		headshotUrl: ericHeadshot,
+		headshotAlt: ericHeadshotAlt,
+		staffName: ericName,
+		staffPosition: ericPosition,
+		staffEmail: ericEmail,
+		staffPhone: ericPhone,
+		staffBio: ericBio,
+		staffShortBio: ericShortBio,
+	} = await getTeam("eric-kroier");
+	const {
+		headshotUrl: gregHeadshot,
+		headshotAlt: gregHeadshotAlt,
+		staffName: gregName,
+		staffPosition: gregPosition,
+		staffEmail: gregEmail,
+		staffPhone: gregPhone,
+		staffBio: gregBio,
+		staffShortBio: gregShortBio,
+	} = await getTeam("greg-milstead");
 
 	return (
 		<>
@@ -44,8 +72,8 @@ export default async function Home() {
 				<div className={`${styles.col} ${styles.colImage}`}>
 					<div className={`${styles.imageWrapper}`}>
 						<Image
-							src={urlBuilder(`${tableData.attributes.url}`)}
-							alt={tableData.attributes.alternativeText}
+							src={tableUrl}
+							alt={tableAlt}
 							fill
 							sizes="(max-width: 500px) 100vw, (max-width: 1000px) 50vw, auto"
 						/>
@@ -64,86 +92,12 @@ export default async function Home() {
 				</div>
 			</section>
 			<hr className={`${styles.sectionLine}`} />
-			<section className={`${styles.sectionThree}`}>
-				<div className={`${styles.row} ${styles.rowOdd}`}>
-					<div className={styles.imageWrapper}>
-						<Image
-							src={urlBuilder(`${eltonData.headshot.data.attributes.url}`)}
-							alt={eltonData.headshot.data.attributes.alternativeText}
-							fill
-							sizes="(max-width: 500px) 100vw, (max-width: 1000px) 50vw, auto"
-						/>
-					</div>
-					<div className={styles.textContainer}>
-						<h3>{eltonData.name}</h3>
-						<span>{eltonData.position}</span>
-						<span>
-							{eltonData.email} | {eltonData.phone}
-						</span>
-						<hr />
-
-						<ReactMarkdown>{`${eltonData.shortBio}`}</ReactMarkdown>
-						<ButtonPrimary
-							color="var(--color-white)"
-							hoverColor="var(--color-white)"
-							href="/our-team/elton-jenkins"
-						>
-							Learn More
-						</ButtonPrimary>
-					</div>
-				</div>
-				<div className={`${styles.row} ${styles.rowEven}`}>
-					<div className={styles.textContainer}>
-						<h3>{ericData.name}</h3>
-						<span>{ericData.position}</span>
-						<span>
-							{ericData.email} | {ericData.phone}
-						</span>
-						<hr />
-
-						<ReactMarkdown>{`${ericData.shortBio}`}</ReactMarkdown>
-						<ButtonPrimary
-							color="var(--color-white)"
-							hoverColor="var(--color-white)"
-							href="/our-team/eric-kroier"
-						>
-							Learn More
-						</ButtonPrimary>
-					</div>
-					<div className={styles.imageWrapper}>
-						<Image
-							src={urlBuilder(`${ericData.headshot.data.attributes.url}`)}
-							alt={ericData.headshot.data.attributes.alternativeText}
-							fill
-							sizes="(max-width: 500px) 100vw, (max-width: 1000px) 50vw, auto"
-						/>
-					</div>
-				</div>
-				<div className={`${styles.row} ${styles.rowOdd}`}>
-					<div className={styles.imageWrapper}>
-						<Image
-							src={urlBuilder(`${gregData.headshot.data.attributes.url}`)}
-							alt={gregData.headshot.data.attributes.alternativeText}
-							fill
-							sizes="(max-width: 500px) 100vw, (max-width: 1000px) 50vw, auto"
-						/>
-					</div>
-					<div className={styles.textContainer}>
-						<h3>{gregData.name}</h3>
-						<span>{gregData.position}</span>
-						<span>
-							{gregData.email} | {gregData.phone}
-						</span>
-						<hr />
-
-						<ReactMarkdown>{`${gregData.shortBio}`}</ReactMarkdown>
-						<ButtonPrimary
-							color="var(--color-white)"
-							hoverColor="var(--color-white)"
-							href="/our-team/greg-milstead"
-						>
-							Learn More
-						</ButtonPrimary>
+			<section className={`${styles.sectionThree} ${styles.egg}`}>
+				<div className={`${styles.col} ${styles.wrapper}`}>
+					<div className={styles.row}>
+					<TeamCardComponent headshot={eltonHeadshot} name={eltonName} position={eltonPosition} shortBio={eltonShortBio} bio={eltonBio} phone={eltonPhone} email={eltonEmail} />
+					<TeamCardComponent headshot={ericHeadshot} name={ericName} position={ericPosition} shortBio={ericShortBio} bio={ericBio} phone={ericPhone} email={ericEmail} />
+					<TeamCardComponent headshot={gregHeadshot} name={gregName} position={gregPosition} shortBio={gregShortBio} bio={gregBio} phone={gregPhone} email={gregEmail} />
 					</div>
 				</div>
 			</section>

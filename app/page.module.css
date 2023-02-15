@@ -72,59 +72,10 @@
 }
 
 .sectionThree {
-	background-color: var(--color-accent);
 	.row {
 		display: flex;
 		justify-content: center;
-		flex-wrap: wrap;
-		.imageWrapper {
-			position: relative;
-			height: rfs(60rem);
-			width: 100%;
-			flex-basis: 50%;
-			background-color: white;
-			img {
-				object-fit: contain;
-			}
-		}
-		.textContainer {
-			flex-basis: 50%;
-			display: flex;
-			flex-direction: column;
-			padding: rfs(2.5rem) rfs(5rem);
-			color: var(--color-white);
-			h3 {
-				font: var(--font-size-title) var(--font-family-fancy);
-				margin-bottom: rfs(1rem);
-				
-			}
-			span {
-				font: var(--font-size-body) var(--font-family-heading);
-				letter-spacing: 2px;
-			}
-			p {
-				margin-bottom: rfs(2.5rem);
-			}
-		}
-	}
-	.rowOdd .textContainer {
-		text-align: left;
-		hr {
-			border-color: var(--color-white);
-			width: rfs(30rem);
-			margin: rfs(2.5rem) auto rfs(2.5rem) 0;
-		}
-	}
-	.rowEven .textContainer {
-		text-align: right;
-		hr {
-			border-color: var(--color-white);
-			width: rfs(30rem);
-			margin: rfs(2.5rem) 0 rfs(2.5rem) auto;
-		}
-		button {
-			margin-left: auto;
-		}
+		gap: var(--sizing-medium);
 	}
 }
 
@@ -145,6 +96,7 @@
 	.rowTwo {
 		display: flex;
 		justify-content: center;
-        gap: var(--sizing-small);
+		gap: var(--sizing-small);
 	}
 }
+

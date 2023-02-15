@@ -1,3 +1,17 @@
+// Media Query for media from strapi library
+export const MediaQuery = `
+query UploadFile($uploadFileId: ID) {
+  uploadFile(id: $uploadFileId) {
+    data {
+      attributes {
+        url
+        alternativeText
+      }
+    }
+  }
+}`
+
+
 // Queries for Blog Posts
 
 export const AllPostsQuery = `
@@ -95,48 +109,14 @@ query GetBlogPostSlug($filters: BlogPostFiltersInput) {
 
 // Queries for Navbar component
 
-export const LeftNavItems = `
-query leftNav {
-  renderNavigation(
-    navigationIdOrSlug: "left-navigation"
-    type: TREE
-    menuOnly: false
-  ) {
-    id
+export const NavItemQuery = `
+query RenderNavigation($navigationIdOrSlug: String!) {
+  renderNavigation(navigationIdOrSlug: $navigationIdOrSlug, type: TREE) {
     title
     path
     items {
       title
       path
-    }
-  }
-}`;
-
-export const RightNavItems = `
-query RightNav {
-  renderNavigation(
-    navigationIdOrSlug: "right-navigation"
-    type: TREE
-    menuOnly: false
-  ) {
-    id
-    title
-    path
-    items {
-      title
-      path
-    }
-  }
-}`;
-
-export const MediaQuery = `
-query LogoQuery($uploadFileId: ID) {
-  uploadFile(id: $uploadFileId) {
-    data {
-      attributes {
-        url
-        alternativeText
-      }
     }
   }
 }`;
@@ -212,6 +192,24 @@ query Authors {
           tabThreeContent
           tabFour
           tabFourContent
+        }
+      }
+    }
+  }
+}`;
+
+export const HeadshotQuery = `
+query Authors($filters: AuthorFiltersInput) {
+  authors(filters: $filters) {
+    data {
+      attributes {
+        headshot {
+          data {
+            attributes {
+              url
+              alternativeText
+            }
+          }
         }
       }
     }
