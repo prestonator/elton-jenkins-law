@@ -1,14 +1,31 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import styles from "@/src/styles/components/StaffPreviewCard.module.css";
 
 const TeamCardComponent = (props) => {
 	const [showOverlay, setShowOverlay] = useState(false);
+	const overlayRef = useRef(null);
 
 	const handleClick = () => {
 		setShowOverlay(!showOverlay);
 	};
+
+	useEffect(() => {
+		const handleClickOutside = (event) => {
+			if (
+				overlayRef.current &&
+				!overlayRef.current.contains(event.target) &&
+				showOverlay
+			) {
+				setShowOverlay(false);
+			}
+		};
+		document.addEventListener("mousedown", handleClickOutside);
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside);
+		};
+	}, [showOverlay]);
 
 	return (
 		<div className={styles.staffCard} onClick={handleClick}>
@@ -23,11 +40,14 @@ const TeamCardComponent = (props) => {
 				className={`${styles.staffCardOverlay} ${
 					showOverlay ? styles.active : ""
 				}`}
+				ref={overlayRef}
 			>
 				<div className={styles.staffCardOverlayContent}>
 					<h3 className={styles.staffCardBio}>{props.bio}</h3>
 					<p className={styles.staffCardFunFact}>Get to Know {props.name}</p>
-					<p className={styles.staffCardGetToKnow}>{props.email} | {props.phone}</p>
+					<p className={styles.staffCardGetToKnow}>
+						{props.email} | {props.phone}
+					</p>
 				</div>
 			</div>
 		</div>
