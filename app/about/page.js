@@ -148,14 +148,40 @@ export default async function Page() {
 					</div>
 				</div>
 			</section>
-			<section className={styles.sectionFive} id="section">
+			<section className={styles.sectionFive}>
 				<div className={`${styles.row} ${styles.rowOne}`}>
-					<div className={styles.textContainer}>
 						<h3>Our Philosophy</h3>
 						<hr />
-					</div>
 				</div>
-				<div className={`${styles.row} ${styles.rowTwo}`}></div>
+				<div className={`${styles.row} ${styles.rowTwo}`}>
+					<PracticeBlurb
+						icon="1"
+						heading="Our Clients Come First"
+						content="We put forth a Client-First attitude, meaning that all of our decision are based on what is best for our client."
+						iconColor="var(--color-black)"
+						alignItems="flex-start"
+						textAlign="left"
+						flexBasis="var(--sizing-xxxl)"
+					/>
+					<PracticeBlurb
+						icon="2"
+						heading="Honest Communication"
+						content="We believe that communication can make or break a case. That’s why no matter what the time is, you can message us securely over MyCase."
+						iconColor="var(--color-black)"
+						alignItems="flex-start"
+						textAlign="left"
+						flexBasis="var(--sizing-xxxl)"
+					/>
+					<PracticeBlurb
+						icon="3"
+						heading="Committed to Excellence"
+						content="Along with our Client-First attitude and Honest Communication, we are committed to excellence. Every single detail of the case is looked over carefully and our decisions are reviewed many times."
+						iconColor="var(--color-black)"
+						alignItems="flex-start"
+						textAlign="left"
+						flexBasis="var(--sizing-xxxl)"
+					/>
+				</div>
 			</section>
 		</>
 	);
