@@ -33,7 +33,8 @@ export default async function Page({ params }) {
 							src={postRes.imageUrl}
 							alt={postRes.imageAlt}
 							fill
-							priority="high"
+							priority
+							sizes="(max-width: 500px) 100vw, (max-width: 1000px) 50vw, auto"
 						/>
 					</div>
 				</div>

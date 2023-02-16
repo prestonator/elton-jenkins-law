@@ -46,10 +46,11 @@
 	--sizing-xs: rfs(1rem);
 	--sizing-xxs: rfs(0.75rem);
 	--sizing-xxxs: rfs(0.5rem);
+	--sizing-section-padding: rfs(15rem);
 }
 
 body #section {
-	margin-top: rfs(15rem);
+	margin-top: var(--sizing-section-padding);
 }
 
 body {
