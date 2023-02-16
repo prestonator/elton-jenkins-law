@@ -165,3 +165,17 @@
 	align-items: center;
 	gap: var(--sizing-xxl);
 }
+
+.sectionSix {
+	border-left-width: var(--sizing-xxl);
+    border-left-color: var(--color-accent);
+	padding: var(--sizing-section-padding) 0;
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+    justify-content: center;
+	gap: var(--sizing-large);
+	h3 {
+		font: 400 var(--font-size-xl) var(--font-family-fancy);
+	}
+}

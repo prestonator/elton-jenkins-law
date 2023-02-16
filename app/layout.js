@@ -1,4 +1,4 @@
-import StyledComponentsRegistry from "@/src/utils/registry";
+import StyledComponentsRegistry from "@/lib/registry";
 import "./globals.css";
 import "@/src/styles/fonts.css";
 import RenderNav from "./RenderNav";

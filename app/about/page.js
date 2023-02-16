@@ -1,6 +1,5 @@
 import styles from "@/src/styles/pages/About.module.css";
 import Image from "next/image";
-import Link from "next/link";
 import { getMediaData } from "@/src/api/fetchData/fetchMedia";
 import PracticeBlurb from "@/src/components/PracticeBlurb";
 import {
@@ -9,8 +8,8 @@ import {
 	BsFileEarmarkText,
 	BsHouseDoor,
 } from "react-icons/bs";
-
 import { AiOutlineLineChart, AiOutlineDollarCircle } from "react-icons/ai";
+import ButtonPrimary from "@/src/components/PrimaryButton";
 
 export default async function Page() {
 	const [staircasePhoto] = await getMediaData([23]);
@@ -150,8 +149,8 @@ export default async function Page() {
 			</section>
 			<section className={styles.sectionFive}>
 				<div className={`${styles.row} ${styles.rowOne}`}>
-						<h3>Our Philosophy</h3>
-						<hr />
+					<h3>Our Philosophy</h3>
+					<hr />
 				</div>
 				<div className={`${styles.row} ${styles.rowTwo}`}>
 					<PracticeBlurb
@@ -181,6 +180,14 @@ export default async function Page() {
 						textAlign="left"
 						flexBasis="var(--sizing-xxxl)"
 					/>
+				</div>
+			</section>
+			<section className={styles.sectionSix}>
+				<div className={`${styles.col} ${styles.colOne}`}>
+					<h3>Let’s Work Together</h3>
+				</div>
+				<div className={`${styles.col} ${styles.colTwo}`}>
+					<ButtonPrimary href="/contact">Get in Touch</ButtonPrimary>
 				</div>
 			</section>
 		</>
