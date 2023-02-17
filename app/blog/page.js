@@ -49,6 +49,7 @@ export default async function Page() {
 							image={post.attributes.image.data.attributes.url}
 							imageAlt={post.attributes.image.data.attributes.alternativeText}
 							slug={post.attributes.slug}
+							parentSlug="blog"
 							categories={post.attributes.categories.data
 								.map((item) => item.attributes.category)
 								.join(", ")}
@@ -66,6 +67,7 @@ export default async function Page() {
 							image={post.attributes.image.data.attributes.url}
 							imageAlt={post.attributes.image.data.attributes.alternativeText}
 							slug={post.attributes.slug}
+							parentSlug="blog"
 							categories={post.attributes.categories.data
 								.map((item) => item.attributes.category)
 								.join(", ")}

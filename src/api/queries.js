@@ -144,8 +144,7 @@ query News {
       }
     }
   }
-}
-`;
+}`;
 
 export const NewsBySlugQuery = `
 query GetNewsBySlug($filters: InTheNewspaperFiltersInput) {

@@ -87,11 +87,14 @@
 			color: var(--color-gray);
 			line-height: rfs(1.5rem);
 			padding-bottom: rfs(0.5rem);
+			&:not(:first-child) {
+				padding-top: var(--sizing-medium);
+			}
 		}
 		p {
 			font-family: var(--font-family-content);
 			color: var(--color-medium-gray);
-			line-height: rfs(1.5rem);
+			line-height: var(--sizing-medium);
 			padding-bottom: rfs(1rem);
 			font-size: var(--font-size-body);
 		}

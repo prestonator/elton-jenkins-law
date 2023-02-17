@@ -4,11 +4,11 @@ import BlogCard from "@/src/components/BlogCard";
 import styles from "@/src/styles/pages/BlogPage.module.css";
 
 export default async function Page() {
-    const { allNewsData } = await getNewsData();
-    const [newsBanner] = await getMediaData([28]);
+	const { allNewsData } = await getNewsData();
+	const [newsBanner] = await getMediaData([28]);
 	const { fullUrl: newsBannerUrl } = newsBanner;
 
-    const halfLength = Math.ceil(allNewsData.length / 2);
+	const halfLength = Math.ceil(allNewsData.length / 2);
 	const firstHalf = allNewsData.slice(0, halfLength);
 	const secondHalf = allNewsData.slice(halfLength);
 
@@ -23,17 +23,12 @@ export default async function Page() {
 			>
 				<div className={styles.row}>
 					<div className={styles.textBlurb}>
-						<h1>Blog</h1>
-						<span>
-							Latest
-							<br />
-							News
-						</span>
+						<h1>FEATURED</h1>
+						<span>In The News</span>
 						<p>
-							Here you will find all of our blog posts. They can help answer
-							questions you may have and provide general knowledge on various
-							subjects. Both Criminal Law and Family Law posts are featured
-							here.
+							Here you will find news articles that feature team members from
+							Elton Jenkins Law, P.L.L.C. Great feats from murder trials to
+							armed robberies, you can see our successful track record.
 						</p>
 					</div>
 				</div>
@@ -49,7 +44,9 @@ export default async function Page() {
 							date={post.attributes.datePublished}
 							image={post.attributes.image.data.attributes.url}
 							imageAlt={post.attributes.image.data.attributes.alternativeText}
+							categories="In the News"
 							slug={post.attributes.slug}
+							parentSlug="in-the-news"
 						/>
 					))}
 				</div>
@@ -63,7 +60,9 @@ export default async function Page() {
 							date={post.attributes.datePublished}
 							image={post.attributes.image.data.attributes.url}
 							imageAlt={post.attributes.image.data.attributes.alternativeText}
+							categories="In the News"
 							slug={post.attributes.slug}
+							parentSlug="in-the-news"
 						/>
 					))}
 				</div>

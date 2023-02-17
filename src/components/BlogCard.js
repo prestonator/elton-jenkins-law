@@ -6,12 +6,12 @@ import ReactMarkdown from "react-markdown";
 import styles from "@/src/styles/components/BlogCard.module.css";
 
 const BlogCard = (props) => {
-    const { title, author, excerpt, date, image, imageAlt, categories, slug } =
+    const { title, author, excerpt, date, image, imageAlt, categories, slug, parentSlug } =
 		props;
 
 
     return (
-        <Link href={`blog/${slug}`} className={styles.blogCardContainer}>
+        <Link href={`${parentSlug}/${slug}`} className={styles.blogCardContainer}>
 			<div className={styles.blogCardWrapper}>
 				<div className={styles.imageWrapper}>
 					<Image

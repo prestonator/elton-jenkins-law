@@ -60,18 +60,6 @@ export default async function Navbar() {
 			{rightNav.map((item) => (
 				<li key={item.path} className={`${styles.menuItem}`}>
 					<Link href={item.path}>{item.title}</Link>
-					{item.title === "Blog" && (
-						<>
-							<IoIosArrowForward />
-							<ul className={styles.submenu}>
-								{item.items.map((subitem) => (
-									<li key={subitem.title} className={styles.subItem}>
-										<Link href={subitem.path}>{subitem.title}</Link>
-									</li>
-								))}
-							</ul>
-						</>
-					)}
 				</li>
 			))}
 		</ul>
