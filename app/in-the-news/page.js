@@ -1,22 +1,23 @@
-import { getPostData } from "@/src/api/fetchData/fetchPost";
+import { getNewsData } from "@/src/api/fetchData/fetchNews";
 import { getMediaData } from "@/src/api/fetchData/fetchMedia";
-import styles from "@/src/styles/pages/BlogPage.module.css";
 import BlogCard from "@/src/components/BlogCard";
+import styles from "@/src/styles/pages/BlogPage.module.css";
 
 export default async function Page() {
-	const { allPostData } = await getPostData();
-	const [blogBanner] = await getMediaData([7]);
-	const { fullUrl: blogBannerUrl } = blogBanner;
-	const halfLength = Math.ceil(allPostData.length / 2);
-	const firstHalf = allPostData.slice(0, halfLength);
-	const secondHalf = allPostData.slice(halfLength);
+    const { allNewsData } = await getNewsData();
+    const [newsBanner] = await getMediaData([28]);
+	const { fullUrl: newsBannerUrl } = newsBanner;
+
+    const halfLength = Math.ceil(allNewsData.length / 2);
+	const firstHalf = allNewsData.slice(0, halfLength);
+	const secondHalf = allNewsData.slice(halfLength);
 
 	return (
 		<>
 			<section
 				className={styles.sectionOne}
 				style={{
-					backgroundImage: `url(${blogBannerUrl})`,
+					backgroundImage: `url(${newsBannerUrl})`,
 					backgroundSize: "cover",
 				}}
 			>
@@ -49,9 +50,6 @@ export default async function Page() {
 							image={post.attributes.image.data.attributes.url}
 							imageAlt={post.attributes.image.data.attributes.alternativeText}
 							slug={post.attributes.slug}
-							categories={post.attributes.categories.data
-								.map((item) => item.attributes.category)
-								.join(", ")}
 						/>
 					))}
 				</div>
@@ -66,9 +64,6 @@ export default async function Page() {
 							image={post.attributes.image.data.attributes.url}
 							imageAlt={post.attributes.image.data.attributes.alternativeText}
 							slug={post.attributes.slug}
-							categories={post.attributes.categories.data
-								.map((item) => item.attributes.category)
-								.join(", ")}
 						/>
 					))}
 				</div>

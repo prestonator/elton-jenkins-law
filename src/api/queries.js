@@ -9,11 +9,9 @@ query UploadFile($uploadFileId: ID) {
       }
     }
   }
-}`
-
+}`;
 
 // Queries for Blog Posts
-
 export const AllPostsQuery = `
 query Posts {
   blogPosts {
@@ -107,8 +105,89 @@ query GetBlogPostSlug($filters: BlogPostFiltersInput) {
   }
 `;
 
-// Queries for Navbar component
+// Queries for In The News
+export const AllNewsQuery = `
+query News {
+  inTheNewspapers {
+    data {
+      id
+      attributes {
+        title
+        content
+        datePublished
+        excerpt
+        slug
+        image {
+          data {
+            attributes {
+              url
+              alternativeText
+            }
+          }
+        }
+        author {
+          data {
+            attributes {
+              name
+              bio
+              avatar {
+                data {
+                  attributes {
+                    url
+                    alternativeText
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;
 
+export const NewsBySlugQuery = `
+query GetNewsBySlug($filters: InTheNewspaperFiltersInput) {
+  inTheNewspapers(filters: $filters) {
+    data {
+      id
+      attributes {
+        title
+        content
+        datePublished
+        excerpt
+        slug
+        image {
+          data {
+            attributes {
+              url
+              alternativeText
+            }
+          }
+        }
+        author {
+          data {
+            attributes {
+              name
+              bio
+              avatar {
+                data {
+                  attributes {
+                    url
+                    alternativeText
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}`;
+
+// Queries for Navbar component
 export const NavItemQuery = `
 query RenderNavigation($navigationIdOrSlug: String!) {
   renderNavigation(navigationIdOrSlug: $navigationIdOrSlug, type: TREE) {
@@ -122,7 +201,6 @@ query RenderNavigation($navigationIdOrSlug: String!) {
 }`;
 
 // queries for the team page
-
 export const StaffByIdQuery = `
 query Query($filters: AuthorFiltersInput) {
   authors(filters: $filters) {
@@ -160,7 +238,6 @@ query Query($filters: AuthorFiltersInput) {
   }
 }
 `;
-
 export const StaffQuery = `
 query Authors {
   authors {

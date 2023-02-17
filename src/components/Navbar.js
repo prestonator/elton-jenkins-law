@@ -5,19 +5,21 @@ import styles from "@/src/styles/components/Navbar.module.css";
 import Image from "next/image";
 import { IoIosArrowForward } from "react-icons/io";
 
-
 export default async function Navbar() {
-	const leftNav = await getNavData("left-navigation");
-	const rightNav = await getNavData("right-navigation");
 	const [logo] = await getMediaData([6]);
 	const { fullUrl: logoUrl, altText: logoAlt } = logo;
+	const leftNav = await getNavData("left-navigation");
+	const rightNav = await getNavData("right-navigation");
 
 	return (
 		<ul className={styles.navContainer}>
 			{leftNav.map((item) => (
 				<li key={item.path} className={`${styles.menuItem}`}>
-					<Link href={item.path}>{item.title}</Link>
-
+					{item.title === "Our Team" || item.title === "Practice Areas" ? (
+						<span>{item.title}</span>
+					) : (
+						<Link href={item.path}>{item.title}</Link>
+					)}
 					{item.title === "Our Team" && (
 						<>
 							<IoIosArrowForward />
