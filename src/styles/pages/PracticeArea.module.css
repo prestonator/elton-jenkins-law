@@ -21,7 +21,7 @@
 		text-transform: uppercase;
 		font-size: var(--font-size-medium);
 	}
-	span {
+	h2 {
 		color: var(--color-white);
 		font-family: var(--font-family-fancy);
 		text-transform: uppercase;
@@ -45,7 +45,7 @@
 	padding-top: var(--sizing-large);
 	max-width: var(--sizing-super-xxl);
 	margin: auto;
-	h2 {
+	h3 {
 		font: 400 var(--font-size-large) var(--font-family-fancy);
 		line-height: 1.25em;
 		text-align: center;
@@ -76,12 +76,19 @@
 }
 
 .sectionThree .rowOne {
-	span {
+	h4 {
 		text-align: center;
 		width: 100%;
 		display: block;
-        color: var(--color-secondary);
-        text-transform: uppercase;
-        font: 700 var(--font-size-body) var(--font-family-heading);
+		color: var(--color-secondary);
+		text-transform: uppercase;
+		font: 700 var(--font-size-body) var(--font-family-heading);
 	}
+}
+
+.sectionThree .rowTwo {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: var(--sizing-large);
 }

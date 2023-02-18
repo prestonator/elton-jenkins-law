@@ -273,3 +273,42 @@ query Authors {
     }
   }
 }`;
+
+// queries for the practice areas page
+export const PracticeAreaPageQuery = `
+query PracticeAreas($filters: PracticeAreaFiltersInput) {
+  practiceAreas(filters: $filters) {
+    data {
+      attributes {
+        heroText
+        firstHeading
+        firstContent
+        secondHeading
+        flipCard {
+          id
+          number
+          title
+          excerpt
+          content
+          image {
+            data {
+              attributes {
+                url
+                alternativeText
+              }
+            }
+          }
+        }
+        heroImage {
+          data {
+            attributes {
+              url
+              alternativeText
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;

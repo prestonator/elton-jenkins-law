@@ -11,7 +11,7 @@ const ServiceBlurb = styled.div`
 	.icon {
 		color: ${(props) => props.iconColor || "var(--color-accent)"};
 		flex-basis: var(--sizing-large);
-        font: 500 var(--font-size-title) var(--font-family-heading);
+		font: 500 var(--font-size-title) var(--font-family-heading);
 		svg {
 			width: var(--font-size-large);
 			height: var(--font-size-large);
@@ -26,18 +26,13 @@ const ServiceBlurb = styled.div`
 		text-align: ${(props) => props.textAlign || "center"};
 		line-height: 1.8em;
 		color: var(--color-medium-gray);
-        flex-basis: ${(props) => props.flexBasis || "var(--sizing-xxl)"};
+		flex-basis: ${(props) => props.flexBasis || "var(--sizing-xxl)"};
 	}
 `;
 
 const PracticeBlurb = (props) => {
 	return (
-		<ServiceBlurb
-			iconColor={props.iconColor}
-			alignItems={props.alignItems}
-			textAlign={props.textAlign}
-            flexBasis={props.flexBasis}
-		>
+		<ServiceBlurb {...props}>
 			<div className="icon">{props.icon}</div>
 			<span className="heading">{props.heading}</span>
 			<p className="content">{props.content}</p>

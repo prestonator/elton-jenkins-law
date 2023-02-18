@@ -1,5 +1,6 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
+import remarkBreaks from 'remark-breaks'
 import { getPostData } from "@/src/api/fetchData/fetchPost";
 import { getPostBySlug } from "@/src/api/fetchData/fetchPostBySlug";
 import {
@@ -81,7 +82,7 @@ export default async function Page({ params }) {
 			</section>
 			<section className={styles.sectionThree}>
 				<div className={styles.contentContainer}>
-					<ReactMarkdown>{`${postRes.postContent}`}</ReactMarkdown>
+					<ReactMarkdown remarkPlugins={[remarkBreaks]}>{`${postRes.postContent}`}</ReactMarkdown>
 				</div>
 			</section>
 		</>
