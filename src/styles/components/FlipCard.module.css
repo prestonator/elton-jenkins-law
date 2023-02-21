@@ -118,7 +118,6 @@
 
 .back .inner p {
 	font: 500 var(--font-size-body) var(--font-family-content);
-	line-height: 1.8em;
 	margin-bottom: var(--sizing-medium);
 }
 
