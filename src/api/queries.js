@@ -107,7 +107,8 @@ query GetBlogPostSlug($filters: BlogPostFiltersInput) {
 `;
 
 // Queries for In The News
-export const AllNewsQuery = `
+
+export const NewsQuery = `
 query News {
   inTheNewspapers {
     data {

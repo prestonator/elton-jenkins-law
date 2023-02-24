@@ -1,10 +1,10 @@
-import { getNewsData } from "@/src/api/fetchData/fetchNews";
+import { fetchNewsData } from "@/src/api/fetchData/newsAPI";
 import { getMediaData } from "@/src/api/fetchData/fetchMedia";
 import BlogCard from "@/src/components/BlogCard";
 import styles from "@/src/styles/pages/BlogPage.module.css";
 
 export default async function Page() {
-	const { allNewsData } = await getNewsData();
+	const allNewsData = await fetchNewsData();
 	const [newsBanner] = await getMediaData([28]);
 	const { fullUrl: newsBannerUrl } = newsBanner;
 

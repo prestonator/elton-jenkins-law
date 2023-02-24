@@ -1,7 +1,6 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
-import { getNewsData } from "@/src/api/fetchData/fetchNews";
-import { getNewsBySlug } from "@/src/api/fetchData/fetchNewsBySlug";
+import { fetchNewsData, fetchNewsDataBySlug } from "@/src/api/fetchData/newsAPI";
 import {
 	HiOutlineSquares2X2,
 	HiOutlineChatBubbleOvalLeft,
@@ -11,7 +10,7 @@ import Image from "next/image";
 import styles from "@/src/styles/pages/BlogPost.module.css";
 
 export async function generateStaticParams() {
-	const { allNewsData } = await getNewsData();
+	const allNewsData = await fetchNewsData();
 
 	return allNewsData.map((post) => ({
 		slug: post.attributes.slug,
@@ -19,7 +18,7 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }) {
-	const newsRes = await getNewsBySlug(params.slug);
+	const newsRes = await fetchNewsDataBySlug(params.slug);
 
 	return (
 		<>
