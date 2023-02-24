@@ -3,7 +3,6 @@ import Image from "next/image";
 import ButtonPrimary from "@/src/components/PrimaryButton";
 import { fetchStaffDataBySlug } from "@/src/api/fetchData/staffAPI";
 import { getMediaData } from "@/src/api/fetchData/fetchMedia";
-import ReactMarkdown from "react-markdown";
 import FeatureCard from "@/src/components/FeatureCard";
 import { BsTelephone, BsCashStack, BsHouseDoor } from "react-icons/bs";
 import { GiHandcuffs } from "react-icons/gi";
@@ -14,36 +13,8 @@ import TeamCardComponent from "@/src/components/TeamCard";
 export default async function Home() {
 	const [tableData] = await getMediaData([8]);
 	const { fullUrl: tableUrl, altText: tableAlt } = tableData;
-	const {
-		headshotUrl: eltonHeadshot,
-		headshotAlt: eltonHeadshotAlt,
-		staffName: eltonName,
-		staffPosition: eltonPosition,
-		staffEmail: eltonEmail,
-		staffPhone: eltonPhone,
-		staffBio: eltonBio,
-		staffShortBio: eltonShortBio,
-	} = await fetchStaffDataBySlug("elton-jenkins");
-	const {
-		headshotUrl: ericHeadshot,
-		headshotAlt: ericHeadshotAlt,
-		staffName: ericName,
-		staffPosition: ericPosition,
-		staffEmail: ericEmail,
-		staffPhone: ericPhone,
-		staffBio: ericBio,
-		staffShortBio: ericShortBio,
-	} = await fetchStaffDataBySlug("eric-kroier");
-	const {
-		headshotUrl: gregHeadshot,
-		headshotAlt: gregHeadshotAlt,
-		staffName: gregName,
-		staffPosition: gregPosition,
-		staffEmail: gregEmail,
-		staffPhone: gregPhone,
-		staffBio: gregBio,
-		staffShortBio: gregShortBio,
-	} = await fetchStaffDataBySlug("greg-milstead");
+	const staffSlugs = ["elton-jenkins", "eric-kroier", "greg-milstead"];
+	const staffMembers = await Promise.all(staffSlugs.map(fetchStaffDataBySlug));
 
 	return (
 		<>
@@ -95,9 +66,19 @@ export default async function Home() {
 			<section className={`${styles.sectionThree} ${styles.egg}`}>
 				<div className={`${styles.col} ${styles.wrapper}`}>
 					<div className={styles.row}>
-					<TeamCardComponent headshot={eltonHeadshot} alt={eltonHeadshotAlt} name={eltonName} position={eltonPosition} shortBio={eltonShortBio} bio={eltonBio} phone={eltonPhone} email={eltonEmail} />
-					<TeamCardComponent headshot={ericHeadshot} alt={ericHeadshotAlt} name={ericName} position={ericPosition} shortBio={ericShortBio} bio={ericBio} phone={ericPhone} email={ericEmail} />
-					<TeamCardComponent headshot={gregHeadshot} alt={gregHeadshotAlt} name={gregName} position={gregPosition} shortBio={gregShortBio} bio={gregBio} phone={gregPhone} email={gregEmail} />
+						{staffMembers.map((staff) => (
+							<TeamCardComponent
+								key={staff.staffName}
+								headshot={staff.headshotUrl}
+								alt={staff.headshotAlt}
+								name={staff.staffName}
+								position={staff.staffPosition}
+								shortBio={staff.staffShortBio}
+								bio={staff.staffBio}
+								phone={staff.staffPhone}
+								email={staff.staffEmail}
+							/>
+						))}
 					</div>
 				</div>
 			</section>
