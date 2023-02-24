@@ -1,11 +1,18 @@
-import { getPracticePageData } from "@/src/api/fetchData/fetchPracticePage";
+import { fetchPracticeData, fetchPracticeDataBySlug } from "@/src/api/fetchData/practiceAPI";
 import styles from "@/src/styles/pages/PracticeArea.module.css";
 import ReactMarkdown from "react-markdown";
 import remarkBreaks from "remark-breaks";
 import FlipCard from "@/src/components/ServiceCard";
 
-export default async function Page() {
-	const pageData = await getPracticePageData("criminal");
+export async function generateStaticParams() {
+	const practiceData = await fetchPracticeData();
+	return practiceData.map((practice) => ({
+		slug: practice.attributes.slug,
+	}));
+}
+
+export default async function Page({ params }) {
+	const pageData = await fetchPracticeDataBySlug(params.slug);
 	return (
 		<>
 			<section

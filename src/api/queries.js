@@ -202,43 +202,7 @@ query RenderNavigation($navigationIdOrSlug: String!) {
 }`;
 
 // queries for the team page
-export const StaffByIdQuery = `
-query Query($filters: AuthorFiltersInput) {
-  authors(filters: $filters) {
-    data {
-      attributes {
-        slug
-        name
-        position
-        phone
-        email
-        bio
-        shortBio
-        longBio
-        location
-        headshot {
-          data {
-            attributes {
-              url
-              alternativeText
-            }
-          }
-        }
-        tabContainer {
-          tabOne
-          tabOneContent
-          tabTwo
-          tabTwoContent
-          tabThree
-          tabThreeContent
-          tabFour
-          tabFourContent
-        }
-      }
-    }
-  }
-}
-`;
+
 export const StaffQuery = `
 query Authors {
   authors {
@@ -276,12 +240,92 @@ query Authors {
   }
 }`;
 
+export const StaffBySlugQuery = `
+query Query($filters: AuthorFiltersInput) {
+  authors(filters: $filters) {
+    data {
+      attributes {
+        slug
+        name
+        position
+        phone
+        email
+        bio
+        shortBio
+        longBio
+        location
+        headshot {
+          data {
+            attributes {
+              url
+              alternativeText
+            }
+          }
+        }
+        tabContainer {
+          tabOne
+          tabOneContent
+          tabTwo
+          tabTwoContent
+          tabThree
+          tabThreeContent
+          tabFour
+          tabFourContent
+        }
+      }
+    }
+  }
+}
+`;
+
 // queries for the practice areas page
-export const PracticeAreaPageQuery = `
+
+export const PracticeQuery = `
+query PracticeAreas {
+  practiceAreas {
+    data {
+      attributes {
+        slug
+        pageTitle
+        heroText
+        firstHeading
+        firstContent
+        secondHeading
+        flipCard {
+          id
+          number
+          title
+          excerpt
+          content
+          image {
+            data {
+              attributes {
+                url
+                alternativeText
+              }
+            }
+          }
+        }
+        heroImage {
+          data {
+            attributes {
+              url
+              alternativeText
+            }
+          }
+        }
+      }
+    }
+  }
+}`;
+
+export const PracticeBySlugQuery = `
 query PracticeAreas($filters: PracticeAreaFiltersInput) {
   practiceAreas(filters: $filters) {
     data {
       attributes {
+        slug
+        pageTitle
         heroText
         firstHeading
         firstContent

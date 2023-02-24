@@ -1,13 +1,19 @@
 import { fetchData } from "@/src/api/server";
-import { PracticeAreaPageQuery } from "@/src/api/queries";
+import { PracticeQuery, PracticeBySlugQuery } from "@/src/api/queries";
 
-export const getPracticePageData = async (title) => {
+export const fetchPracticeData = async () => {
+	const response = await fetchData(PracticeQuery);
+	const allPracticeData = response?.data?.practiceAreas?.data ?? [];
+	return allPracticeData;
+};
+
+export const fetchPracticeDataBySlug = async (slug) => {
 	const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
 
-	const res = await fetchData(PracticeAreaPageQuery, {
-		filters: { pageTitle: { containsi: title } },
+	const res = await fetchData(PracticeBySlugQuery, {
+		filters: { slug: { contains: slug } },
 	}).catch((err) => {
-		console.error(`Error fetching page data for page ${title}:`, err);
+		console.error(`Error fetching page data for page ${slug}:`, err);
 		return null;
 	});
 	if (!res) return null;
@@ -21,7 +27,7 @@ export const getPracticePageData = async (title) => {
 		secondHeading: attributes.secondHeading,
 		card: attributes.flipCard.map((item) => {
 			return {
-                id: item.id,
+				id: item.id,
 				number: item.number,
 				title: item.title,
 				excerpt: item.excerpt,

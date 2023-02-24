@@ -1,19 +1,18 @@
-import { getTeam } from "@/src/api/fetchData/fetchTeam";
-import { getAllStaffData } from "@/src/api/fetchData/fetchTeamData";
+import { fetchStaffData, fetchStaffDataBySlug } from "@/src/api/fetchData/staffAPI";
 import Image from "next/image";
 import styles from "@/src/styles/pages/TeamMember.module.css";
 import TabbedContainer from "@/src/components/TabContainer";
 import withSpace from "@/src/utils/withSpace";
 
 export async function generateStaticParams() {
-	const { staffData } = await getAllStaffData();
+	const staffData = await fetchStaffData();
 	return staffData.map((staff) => ({
 		slug: staff.attributes.slug,
 	}));
 }
 
 export default async function Page({ params }) {
-	const memberRes = await getTeam(params.slug);
+	const memberRes = await fetchStaffDataBySlug(params.slug);
 
 	return (
 		<>
