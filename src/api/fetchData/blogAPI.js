@@ -1,9 +1,9 @@
 import { fetchData } from "@/src/api/server";
-import { AllPostsQuery, PostBySlugQuery } from "@/src/api/queries";
+import { PostQuery, PostBySlugQuery } from "@/src/api/queries";
 import formatDate from "@/src/utils/formatDate";
 
 export const fetchPostData = async () => {
-	const response = await fetchData(AllPostsQuery);
+	const response = await fetchData(PostQuery);
 	const allPostData = response?.data?.blogPosts?.data ?? [];
 	return allPostData;
 };

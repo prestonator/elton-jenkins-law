@@ -12,7 +12,8 @@ query UploadFile($uploadFileId: ID) {
 }`;
 
 // Queries for Blog Posts
-export const AllPostsQuery = `
+
+export const PostQuery = `
 query Posts {
   blogPosts {
     data {

@@ -1,8 +1,10 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
-import remarkBreaks from 'remark-breaks'
-import { getPostData } from "@/src/api/fetchData/fetchPost";
-import { getPostBySlug } from "@/src/api/fetchData/fetchPostBySlug";
+import remarkBreaks from "remark-breaks";
+import {
+	fetchPostData,
+	fetchPostDataBySlug,
+} from "@/src/api/fetchData/blogAPI";
 import {
 	HiOutlineSquares2X2,
 	HiOutlineChatBubbleOvalLeft,
@@ -12,7 +14,7 @@ import Image from "next/image";
 import styles from "@/src/styles/pages/BlogPost.module.css";
 
 export async function generateStaticParams() {
-	const { allPostData } = await getPostData();
+	const allPostData = await fetchPostData();
 
 	return allPostData.map((post) => ({
 		slug: post.attributes.slug,
@@ -20,7 +22,7 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }) {
-	const postRes = await getPostBySlug(params.slug);
+	const postRes = await fetchPostDataBySlug(params.slug);
 
 	return (
 		<>
@@ -74,15 +76,15 @@ export default async function Page({ params }) {
 						<div className={styles.iconContainer}>
 							<HiOutlineCalendar />
 						</div>
-						<div className={styles.contentContainer}>
-							{postRes.publishDate}
-						</div>
+						<div className={styles.contentContainer}>{postRes.publishDate}</div>
 					</div>
 				</div>
 			</section>
 			<section className={styles.sectionThree}>
 				<div className={styles.contentContainer}>
-					<ReactMarkdown remarkPlugins={[remarkBreaks]}>{`${postRes.postContent}`}</ReactMarkdown>
+					<ReactMarkdown
+						remarkPlugins={[remarkBreaks]}
+					>{`${postRes.postContent}`}</ReactMarkdown>
 				</div>
 			</section>
 		</>
