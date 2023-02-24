@@ -1,7 +1,7 @@
 import styles from "./page.module.css";
 import Image from "next/image";
 import ButtonPrimary from "@/src/components/PrimaryButton";
-import { getTeam } from "@/src/api/fetchData/fetchTeam";
+import { fetchStaffDataBySlug } from "@/src/api/fetchData/fetchTeam";
 import { getMediaData } from "@/src/api/fetchData/fetchMedia";
 import ReactMarkdown from "react-markdown";
 import FeatureCard from "@/src/components/FeatureCard";
@@ -23,7 +23,7 @@ export default async function Home() {
 		staffPhone: eltonPhone,
 		staffBio: eltonBio,
 		staffShortBio: eltonShortBio,
-	} = await getTeam("elton-jenkins");
+	} = await fetchStaffDataBySlug("elton-jenkins");
 	const {
 		headshotUrl: ericHeadshot,
 		headshotAlt: ericHeadshotAlt,
@@ -33,7 +33,7 @@ export default async function Home() {
 		staffPhone: ericPhone,
 		staffBio: ericBio,
 		staffShortBio: ericShortBio,
-	} = await getTeam("eric-kroier");
+	} = await fetchStaffDataBySlug("eric-kroier");
 	const {
 		headshotUrl: gregHeadshot,
 		headshotAlt: gregHeadshotAlt,
@@ -43,7 +43,7 @@ export default async function Home() {
 		staffPhone: gregPhone,
 		staffBio: gregBio,
 		staffShortBio: gregShortBio,
-	} = await getTeam("greg-milstead");
+	} = await fetchStaffDataBySlug("greg-milstead");
 
 	return (
 		<>
