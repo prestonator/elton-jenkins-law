@@ -1,7 +1,7 @@
 import styles from "./page.module.css";
 import Image from "next/image";
 import ButtonPrimary from "@/src/components/PrimaryButton";
-import { fetchStaffDataBySlug } from "@/src/api/fetchData/fetchTeam";
+import { fetchStaffDataBySlug } from "@/src/api/fetchData/staffAPI";
 import { getMediaData } from "@/src/api/fetchData/fetchMedia";
 import ReactMarkdown from "react-markdown";
 import FeatureCard from "@/src/components/FeatureCard";
