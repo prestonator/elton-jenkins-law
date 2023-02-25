@@ -1,5 +1,6 @@
 import { getMediaData } from "@/src/api/fetchData/fetchMedia";
 import styles from "@/src/styles/pages/MyCase.module.css";
+import ReactFormTest from "@/src/components/Bookings";
 import Image from "next/image";
 import Link from "next/link";
 import ButtonPrimary from "@/src/components/PrimaryButton";
@@ -92,6 +93,11 @@ export default async function Page() {
 							convenience and security of a cloud-based case management system.
 						</p>
 					</div>
+				</div>
+			</section>
+			<section className={styles.sectionThree}>
+				<div className={styles.col}>
+					<ReactFormTest />
 				</div>
 			</section>
 		</>
