@@ -6,5 +6,10 @@
 		"import\\s+[\\w*{}\\n\\r\\t, ]+\\s+from\\s+(['\"])[\\w@./]+(['\"])\\s*;?|import\\s+[\\w{},\\s]+from\\s+(['\"])[\\w@./]+(['\"])\\s*;?|import\\s+[\\w*{}\\n\\r\\t, ]+\\s+['\"][\\w@./]+['\"]\\s*;?|import\\s+['\"][\\w@./]+['\"]\\s*;?"
 	],
 	"gptcommit.expressMode": true,
-	"gptcommit.expressModeContent": "title + breakdown"
+	"gptcommit.expressModeContent": "title + breakdown",
+	"CodeGPT.maxTokens": 3000,
+	"CodeGPT.temperature": 0.6,
+	"cSpell.words": [
+		"apos"
+	]
 }

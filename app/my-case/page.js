@@ -1,11 +1,9 @@
 import { getMediaData } from "@/src/api/fetchData/fetchMedia";
 import styles from "@/src/styles/pages/MyCase.module.css";
-import ReactFormTest from "@/src/components/Bookings";
-import Form from "@/src/form/Form";
 import Image from "next/image";
 import Link from "next/link";
 import ButtonPrimary from "@/src/components/PrimaryButton";
-
+import MultiStepForm from "@/src/Form/MultiStepForm";
 export default async function Page() {
 	const [myCaseData] = await getMediaData([12]);
 	const { fullUrl: myCaseLogoUrl, altText: myCaseLogoAlt } = myCaseData;
@@ -98,7 +96,7 @@ export default async function Page() {
 			</section>
 			<section className={styles.sectionThree}>
 				<div className={styles.col}>
-					<Form />
+					<MultiStepForm />
 				</div>
 			</section>
 		</>

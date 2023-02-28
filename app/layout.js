@@ -4,6 +4,7 @@ import "@/src/styles/fonts.css";
 import RenderNav from "./RenderNav";
 import Navbar from "@/src/components/Navbar";
 import Footer from "@/src/components/Footer";
+import FormProvider from "@/src/Form/context";
 
 export const metadata = {
 	title: "Elton Jenkins Law, PLLC",
@@ -27,7 +28,9 @@ export default async function RootLayout({ children }) {
 				<RenderNav>
 					<Navbar />
 				</RenderNav>
-				<StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+				<StyledComponentsRegistry>
+					<FormProvider>{children}</FormProvider>
+				</StyledComponentsRegistry>
 				<Footer />
 			</body>
 		</html>
