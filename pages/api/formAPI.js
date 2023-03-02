@@ -18,7 +18,7 @@ export default function handler(req, res) {
 	res.status(200).json({ data: `${body.fullName} ${body.email}` });
 
 	// Trigger the webhook node in n8n.
-	fetch("https://n8n.jenkinsremote.com/webhook/trigger-form-webhook", {
+	fetch("https://n8n.jenkinsremote.com/webhook-test/trigger-form-webhook", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
