@@ -1,3 +1,4 @@
+// Form/components/Forms/StepTwo.js
 import styles from "@/src/Form/styles.module.css";
 import { useForm } from "react-hook-form";
 import { useFormData } from "../../context";
@@ -6,13 +7,13 @@ import * as yup from "yup";
 
 
 const schema = yup.object().shape({
-	"legal-issue": yup.array().min(1),
+	"legalIssue": yup.array().min(1),
 });
 
 
 
 
-export default function BillingInfo({ formStep, nextFormStep }) {
+export default function StepTwo({ formStep, nextFormStep }) {
 	const { setFormValues } = useFormData();
 
 	const {
@@ -32,14 +33,14 @@ export default function BillingInfo({ formStep, nextFormStep }) {
 
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className={styles.formRow}>
-					<label htmlFor="legal-issue">
+					<label htmlFor="legalIssue">
 						Type of legal issue (Choose at least 1)
 					</label>
 					<span>
 						Criminal Law
 						<input
 							type="checkbox"
-							{...register("legal-issue", { required: true })}
+							{...register("legalIssue", { required: true })}
 							value="Criminal Law"
 						/>
 					</span>
@@ -47,7 +48,7 @@ export default function BillingInfo({ formStep, nextFormStep }) {
 						Family Law
 						<input
 							type="checkbox"
-							{...register("legal-issue", { required: true })}
+							{...register("legalIssue", { required: true })}
 							value="Family Law"
 						/>
 					</span>
@@ -55,7 +56,7 @@ export default function BillingInfo({ formStep, nextFormStep }) {
 						Personal Injury Law
 						<input
 							type="checkbox"
-							{...register("legal-issue", { required: true })}
+							{...register("legalIssue", { required: true })}
 							value="Personal Injury Law"
 						/>
 					</span>
@@ -63,7 +64,7 @@ export default function BillingInfo({ formStep, nextFormStep }) {
 						Other, Please Specify
 						<input
 							type="checkbox"
-							{...register("legal-issue", { required: true })}
+							{...register("legalIssue", { required: true })}
 							value="Other, Please Specify"
 						/>
 					</span>

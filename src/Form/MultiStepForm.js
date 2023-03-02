@@ -2,12 +2,7 @@
 import { useState } from "react";
 import styles from "@/src/Form/styles.module.css";
 import FormCard from "@/src/Form/components/FormCard";
-import {
-	BillingInfo,
-	ConfirmPurchase,
-	PersonalInfo,
-} from "@/src/Form/components/Forms";
-import FormCompleted from "@/src/Form/components/FormCompleted";
+import FormSteps from "@/src/Form/components/FormSteps";
 
 const MultiStepForm = () => {
 	const [formStep, setFormStep] = useState(0);
@@ -16,21 +11,21 @@ const MultiStepForm = () => {
 
 	const prevFormStep = () => setFormStep((currentStep) => currentStep - 1);
 
+	const CurrentFormStep = FormSteps[formStep].component;
+
 	return (
 		<div className={styles.container}>
 			<h1>Schedule a Consultation Today!</h1>
-			<FormCard currentStep={formStep} prevFormStep={prevFormStep}>
-				{formStep >= 0 && (
-					<PersonalInfo formStep={formStep} nextFormStep={nextFormStep} className={styles.formStep} />
-				)}
-				{formStep >= 1 && (
-					<BillingInfo formStep={formStep} nextFormStep={nextFormStep} className={styles.formStep} />
-				)}
-				{formStep >= 2 && (
-					<ConfirmPurchase formStep={formStep} nextFormStep={nextFormStep} className={styles.formStep} />
-				)}
-
-				{formStep > 2 && <FormCompleted />}
+			<FormCard
+				className={styles.formCard}
+				currentStep={formStep}
+				prevFormStep={prevFormStep}
+			>
+				<CurrentFormStep
+					formStep={formStep}
+					nextFormStep={nextFormStep}
+					className={styles.formStep}
+				/>
 			</FormCard>
 		</div>
 	);

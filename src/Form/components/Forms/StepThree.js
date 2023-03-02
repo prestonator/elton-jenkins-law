@@ -1,27 +1,41 @@
-import React from "react";
+// Form/components/Forms/StepThree.js
+import React, { useState } from "react";
 import styles from "@/src/Form/styles.module.css";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { useFormData } from "../../context";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { DayPicker } from "react-day-picker";
+import "react-day-picker/dist/style.css";
+import { enGB } from "date-fns/locale";
+import { addDays, isBefore } from "date-fns";
 
 const schema = yup.object().shape({
 	//checkbox: yup.boolean().required(),
 });
 
-export default function ConfirmPurchase({ formStep, nextFormStep }) {
+export default function StepThree({ formStep, nextFormStep }) {
 	const { setFormValues } = useFormData();
-
 	const {
 		handleSubmit,
 		formState: { errors },
 		register,
+		control,
 	} = useForm({ resolver: yupResolver(schema), mode: "all" });
 
 	const onSubmit = (values) => {
 		setFormValues(values);
 		nextFormStep();
 	};
+
+	const currentDate = new Date();
+	const minSelectableDate = addDays(currentDate, 3);
+
+	const disabledDays = {
+		before: minSelectableDate,
+	};
+
+	const isDayDisabled = (day) => isBefore(day, minSelectableDate);
 
 	return (
 		<div className={formStep === 2 ? styles.showForm : styles.hideForm}>
@@ -30,20 +44,15 @@ export default function ConfirmPurchase({ formStep, nextFormStep }) {
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className={styles.formRow}>
 					<input
-						type="datetime-local"
-						placeholder="Pick a date and time"
-						{...register("Pick a date and time", { required: true })}
-					/>
-					<input
 						type="checkbox"
 						placeholder="Have you consulted with another firm about this matter?"
 						{...register(
-							"Have you consulted with another firm about this matter?",
+							"previousConsultation",
 							{ required: true }
 						)}
 					/>
 					<select
-						{...register("How did you hear about our firm?", {
+						{...register("referral", {
 							required: true,
 						})}
 					>
@@ -56,6 +65,23 @@ export default function ConfirmPurchase({ formStep, nextFormStep }) {
 							Other (Please Specify)
 						</option>
 					</select>
+					<label htmlFor="date">Date</label>
+					<Controller
+						name="date"
+						control={control}
+						rules={{ required: true }}
+						render={({ field: { onChange, value } }) => (
+							<DayPicker
+								selected={value}
+								onDayClick={onChange}
+								inputProps={{ required: true }}
+								locale={enGB}
+								showOutsideDays
+								disabled={disabledDays}
+								modifiers={{ disabled: isDayDisabled }}
+							/>
+						)}
+					/>
 				</div>
 				<button>Next</button>
 			</form>

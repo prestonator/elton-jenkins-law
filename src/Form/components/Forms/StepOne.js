@@ -1,3 +1,4 @@
+// Form/components/Forms/StepOne.js
 import React from "react";
 import styles from "@/src/Form/styles.module.css";
 import { useForm, Controller } from "react-hook-form";
@@ -13,7 +14,7 @@ const schema = yup.object().shape({
 	phone: yup.string().required(),
 });
 
-export default function PersonalInfo({ formStep, nextFormStep }) {
+export default function StepOne({ formStep, nextFormStep }) {
 	const { setFormValues } = useFormData();
 
 	const {
