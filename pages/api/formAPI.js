@@ -16,4 +16,22 @@ export default function handler(req, res) {
 	// Found the name.
 	// Sends a HTTP success code
 	res.status(200).json({ data: `${body.fullName} ${body.email}` });
+
+	// Trigger the webhook node in n8n.
+	fetch("https://n8n.jenkinsremote.com/webhook/trigger-form-webhook", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({ data: body }),
+	})
+		.then(() => {
+			// Send a success response back to the client.
+			res.status(200).json({ data: `${body.fullName} ${body.email}` });
+		})
+		.catch((error) => {
+			console.log(error);
+			// Send an error response back to the client.
+			res.status(500).json({ data: "Error triggering webhook node." });
+		});
 }
