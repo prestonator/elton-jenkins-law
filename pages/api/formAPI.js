@@ -20,9 +20,6 @@ export default function handler(req, res) {
 	// Trigger the webhook node in n8n.
 	fetch("https://n8n.jenkinsremote.com/webhook-test/trigger-form-webhook", {
 		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
 		body: JSON.stringify({ data: body }),
 	})
 		.then(() => {
