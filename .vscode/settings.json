@@ -9,7 +9,9 @@
 	"gptcommit.expressModeContent": "title + breakdown",
 	"CodeGPT.maxTokens": 3000,
 	"CodeGPT.temperature": 0.6,
-	"cSpell.words": [
-		"apos"
-	]
+	"cSpell.words": ["apos"],
+	"editor.formatOnSave": true,
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
 }

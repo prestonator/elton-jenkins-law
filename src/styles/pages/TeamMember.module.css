@@ -6,14 +6,14 @@
 	flex-direction: row;
 	justify-content: center;
     align-items: center;
-	gap: rfs(5rem);
-	margin-top: var(--sizing-xxl);
+	gap: var(--size-5);
+	margin-top: var(--size-10);
 	.col {
-		flex-basis: rfs(100rem);
+		flex-basis: var(--size-100);
 		.imageWrapper {
 			position: relative;
 			width: 100%;
-			height: rfs(75rem);
+			height: var(--size-75);
 			img {
 				object-fit: cover;
 			}
@@ -25,36 +25,36 @@
                 justify-content: center;
                 font-family: var(--font-family-fancy);
                 background-color: var(--color-white);
-                padding: rfs(1rem) 0;
+                padding: var(--size-1) 0;
 				h1 {
-                    font-size: var(--font-size-xl);
+                    font-size: var(--size-5);
 					&::after {
 						content: "|";
-                        margin: 0 rfs(1rem);
+                        margin: 0 var(--size-1);
 					}
 				}
 				span {
-                    font-size: var(--font-size-title);
+                    font-size: var(--size-2-5);
 				}
 			}
             .textMeta {
                 animation: textColor 2s ease forwards;
-                font-size: var(--font-size-medium);
+                font-size: var(--size-1-5);
                 display: flex;
                 flex-direction: row;
                 justify-content: space-around;
-                width: rfs(75rem);
-                margin: rfs(1rem) auto;
+                width: var(--size-75);
+                margin: var(--size-1) auto;
                 h4 {
-                    flex-basis: rfs(40rem);
+                    flex-basis: var(--size-40);
                     text-align: center;
                 }
             }
             .textContent {
                 animation: textColor 2s ease forwards;
-                font-size: rfs(1.15rem);
+                font-size: var(--size-1-25);
                 text-align: center;
-                line-height: rfs(2rem);
+                line-height: var(--size-2);
             }
 		}
 	}

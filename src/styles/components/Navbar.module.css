@@ -9,14 +9,14 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
-		gap: rfs(1rem);
+		gap: var(--size-1);
 		.menuItemLogo {
-			flex-basis: rfs(50rem);
-			padding: rfs(0.5rem) 0;
+			flex-basis: var(--size-50);
+			padding: var(--size-0-5) 0;
 			.logoWrapper {
 				position: relative;
 				width: 100%;
-				height: rfs(10rem);
+				height: var(--size-10);
 				img {
 					object-fit: contain;
 				}
@@ -24,7 +24,7 @@
 		}
 		.menuItem {
 			font-family: var(--font-family-fancy);
-			font-size: var(--font-size-title);
+			font-size: var(--size-2-5);
 			a.active {
 				color: var(--color-gold);
 			}
@@ -37,14 +37,14 @@
 			}
 			&:nth-of-type(2),
 			&:nth-of-type(3) {
-				padding-right: rfs(2rem);
+				padding-right: var(--size-2);
 			}
 			&:not(:nth-child(5)) {
 				position: relative;
 				color: black;
 				transition: var(--default-hover-transition);
 				a {
-					padding: 0 rfs(0.5rem);
+					padding: 0 var(--size-0-5);
 				}
 				&::after {
 					content: "";
@@ -84,9 +84,9 @@
 		width: max-content;
 		box-shadow: 1px 1px 5px rgb(0 0 0 / 20%);
 		border-top: 3px solid var(--color-black);
-		padding: rfs(1rem) 0;
+		padding: var(--size-1) 0;
 		.subItem {
-			padding: 0 rfs(1rem);
+			padding: 0 var(--size-1);
 			> a {
 				color: var(--color-black);
 				transition: var(--default-hover-transition);

@@ -1,3 +1,4 @@
+// app/home.js
 import styles from "./page.module.css";
 import Image from "next/image";
 import ButtonPrimary from "@/src/components/PrimaryButton";

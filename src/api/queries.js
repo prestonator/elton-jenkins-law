@@ -280,56 +280,47 @@ query Query($filters: AuthorFiltersInput) {
 
 // queries for the practice areas page
 
-export const PracticeQuery = `
-query PracticeAreas {
+export const PracticeSlugQuery = `
+query PracticeSlugQuery {
   practiceAreas {
     data {
       attributes {
         slug
-        pageTitle
-        heroText
-        firstHeading
-        firstContent
-        secondHeading
-        flipCard {
-          id
-          number
-          title
-          excerpt
-          content
-          image {
-            data {
-              attributes {
-                url
-                alternativeText
-              }
-            }
-          }
-        }
-        heroImage {
-          data {
-            attributes {
-              url
-              alternativeText
-            }
-          }
-        }
       }
     }
   }
-}`;
+}
+`;
 
 export const PracticeBySlugQuery = `
-query PracticeAreas($filters: PracticeAreaFiltersInput) {
+query PracticeBySlugQuery($filters: PracticeAreaFiltersInput) {
   practiceAreas(filters: $filters) {
     data {
       attributes {
         slug
         pageTitle
         heroText
-        firstHeading
-        firstContent
-        secondHeading
+        heroImage {
+          data {
+            attributes {
+              url
+              alternativeText
+            }
+          }
+        }
+        sections {
+          ... on ComponentComponentsSection {
+            heading
+            content
+            id
+          }
+        }
+        special {
+          ... on ComponentMoleculesSectionHeading {
+            id
+            heading
+          }
+        }
         flipCard {
           id
           number
@@ -342,14 +333,6 @@ query PracticeAreas($filters: PracticeAreaFiltersInput) {
                 url
                 alternativeText
               }
-            }
-          }
-        }
-        heroImage {
-          data {
-            attributes {
-              url
-              alternativeText
             }
           }
         }

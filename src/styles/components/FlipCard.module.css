@@ -1,6 +1,6 @@
 .cardContainer {
-	width: var(--sizing-xxxxl);
-	margin: var(--sizing-xs);
+	width: var(--size-40);
+	margin: var(--size-1);
 	cursor: pointer;
 }
 
@@ -18,7 +18,7 @@
 	transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
 	backface-visibility: hidden;
 	text-align: center;
-	min-height: var(--sizing-super);
+	min-height: var(--size-45);
 	height: auto;
 	border-radius: 10px;
 	color: var(--color-white);
@@ -62,7 +62,7 @@
 	position: absolute;
 	left: 0;
 	width: 100%;
-	padding: var(--sizing-medium);
+	padding: var(--size-2-5);
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	outline: 1px solid transparent;
@@ -100,25 +100,25 @@
 }
 
 .front .inner p {
-	font: 500 var(--font-size-title) var(--font-family-fancy);
+	font: 500 var(--size-2-5) var(--font-family-fancy);
 	position: relative;
 }
 
 .front .inner hr {
 	border-color: var(--color-light-gray);
-	width: var(--sizing-xl);
+	width: var(--size-7-5);
 	border-top-width: 2px;
-	margin: var(--sizing-small) auto var(--sizing-xs) auto;
+	margin: var(--size-1-5) auto var(--size-1) auto;
 }
 
 .front .inner span {
 	color: var(--color-light-gray);
-	font: 500 var(--font-size-body) var(--font-family-content);
+	font: 500 var(--size-1) var(--font-family-content);
 }
 
 .back .inner p {
-	font: 500 var(--font-size-body) var(--font-family-content);
-	margin-bottom: var(--sizing-medium);
+	font: 500 var(--size-1) var(--font-family-content);
+	margin-bottom: var(--size-2-5);
 }
 
 @media screen and (max-width: 64rem) {

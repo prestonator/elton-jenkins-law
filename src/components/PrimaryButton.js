@@ -10,10 +10,10 @@ const Button = styled.button`
 	border: 1px solid ${(props) => props.color || "rgba(0, 0, 0, 0.35)"};
 	background: transparent;
 	transition: var(--default-hover-transition);
-	font: 600 var(--font-size-medium) var(--font-family-btn);
+	font: 600 var(--size-1-5) var(--font-family-btn);
 	letter-sizing: 1px;
 	text-transform: uppercase;
-	padding: var(--sizing-xxs) var(--sizing-medium);
+	padding: var(--size-0-75) var(--size-2-5);
 	position: relative;
 	width: fit-content;
 	svg {
@@ -28,7 +28,7 @@ const Button = styled.button`
 		background: ${(props) =>
 			props.hoverBackground || "var(--color-low-opacity-black)"};
 		color: ${(props) => props.hoverColor || "var(--color-accent)"};
-		padding-right: var(--sizing-large);
+		padding-right: var(--size-5);
 		svg {
 			opacity: 1;
 			right: 10%;

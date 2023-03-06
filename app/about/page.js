@@ -160,7 +160,7 @@ export default async function Page() {
 						iconColor="var(--color-black)"
 						alignItems="flex-start"
 						textAlign="left"
-						flexBasis="var(--sizing-xxxl)"
+						flexBasis="var(--size-25)"
 					/>
 					<PracticeBlurb
 						icon="2"
@@ -169,7 +169,7 @@ export default async function Page() {
 						iconColor="var(--color-black)"
 						alignItems="flex-start"
 						textAlign="left"
-						flexBasis="var(--sizing-xxxl)"
+						flexBasis="var(--size-25)"
 					/>
 					<PracticeBlurb
 						icon="3"
@@ -178,7 +178,7 @@ export default async function Page() {
 						iconColor="var(--color-black)"
 						alignItems="flex-start"
 						textAlign="left"
-						flexBasis="var(--sizing-xxxl)"
+						flexBasis="var(--size-25)"
 					/>
 				</div>
 			</section>

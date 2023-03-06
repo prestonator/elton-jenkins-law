@@ -96,7 +96,7 @@ export default async function Page() {
 			</section>
 			<section className={styles.sectionThree}>
 				<div className={styles.col}>
-					<MultiStepForm />
+					
 				</div>
 			</section>
 		</>

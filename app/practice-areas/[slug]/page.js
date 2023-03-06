@@ -1,24 +1,28 @@
-import { fetchPracticeData, fetchPracticeDataBySlug } from "@/src/api/fetchData/practiceAPI";
-import styles from "@/src/styles/pages/PracticeArea.module.css";
+import React from "react";
+import {
+	getPracticeSlugs,
+	getPracticeAreaBySlug,
+} from "@/src/api/fetchData/practiceAPI";
+import styles from "./PracticeArea.module.css";
 import ReactMarkdown from "react-markdown";
 import remarkBreaks from "remark-breaks";
 import FlipCard from "@/src/components/ServiceCard";
 
 export async function generateStaticParams() {
-	const practiceData = await fetchPracticeData();
-	return practiceData.map((practice) => ({
+	const practiceSlugs = await getPracticeSlugs();
+	return practiceSlugs.map((practice) => ({
 		slug: practice.attributes.slug,
 	}));
 }
 
 export default async function Page({ params }) {
-	const pageData = await fetchPracticeDataBySlug(params.slug);
+	const practiceData = await getPracticeAreaBySlug(params.slug);
 	return (
-		<>
+		<div>
 			<section
 				className={styles.sectionOne}
 				style={{
-					backgroundImage: `url(${pageData.heroImage})`,
+					backgroundImage: `url(${practiceData.heroImage})`,
 					backgroundSize: "cover",
 				}}
 			>
@@ -26,28 +30,34 @@ export default async function Page({ params }) {
 					<div className={styles.textBlurb}>
 						<ReactMarkdown
 							remarkPlugins={[remarkBreaks]}
-						>{`${pageData.heroText}`}</ReactMarkdown>
+						>{`${practiceData.heroText}`}</ReactMarkdown>
 					</div>
 				</div>
 			</section>
 			<section className={styles.sectionTwo}>
-				<div className={`${styles.col} ${styles.colOne}`}>
-					<ReactMarkdown>{`${pageData.firstHeading}`}</ReactMarkdown>
-				</div>
-				<div className={`${styles.col} ${styles.colTwo}`}>
-					<ReactMarkdown
-						remarkPlugins={[remarkBreaks]}
-					>{`${pageData.firstContent}`}</ReactMarkdown>
-				</div>
+				{practiceData.sections.map((section) => (
+					<>
+						<div className={styles.heading}>
+							<ReactMarkdown>{`${section.heading}`}</ReactMarkdown>
+						</div>
+						<div className={styles.content}>
+							<ReactMarkdown
+								remarkPlugins={[remarkBreaks]}
+							>{`${section.content}`}</ReactMarkdown>
+						</div>
+					</>
+				))}
 			</section>
 			<section className={styles.sectionThree}>
-				<div className={`${styles.row} ${styles.rowOne}`}>
-					<ReactMarkdown
-						remarkPlugins={[remarkBreaks]}
-					>{`${pageData.secondHeading}`}</ReactMarkdown>
-				</div>
+				{practiceData.special.map((item) => (
+					<div className={styles.heading} key={item.id}>
+						<ReactMarkdown
+							remarkPlugins={[remarkBreaks]}
+						>{`${item.heading}`}</ReactMarkdown>
+					</div>
+				))}
 				<div className={`${styles.row} ${styles.rowTwo}`}>
-					{pageData.card.map((card) => (
+					{practiceData.card.map((card) => (
 						<FlipCard
 							key={card.id}
 							title={card.title}
@@ -59,6 +69,6 @@ export default async function Page({ params }) {
 					))}
 				</div>
 			</section>
-		</>
+		</div>
 	);
 }

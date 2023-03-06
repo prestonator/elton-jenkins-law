@@ -1,23 +1,23 @@
 .scheduleWrapper {
     .scheduleContainer {
-        width: rfs(100rem);
+        width: var(--size-100);
         margin: auto;
         display: flex;
         background-color: var(--color-white);
-        padding: var(--sizing-small) var(--sizing-medium);
-        gap: var(--sizing-medium);
+        padding: var(--size-1-5) var(--size-2-5);
+        gap: var(--size-2-5);
         .textContainer {
             background-color: var(--color-white);
-            padding-top: var(--sizing-xxl);
+            padding-top: var(--size-10);
             .textContent {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 color: var(--color-white);
                 background-color: var(--color-gray);
-                font: 600 var(--font-size-small) var(--font-family-heading);
-                border-top: var(--sizing-xxs) solid var(--color-secondary);
-                padding: var(--sizing-large) var(--sizing-xl);
+                font: 600 var(--size-0-75) var(--font-family-heading);
+                border-top: var(--size-0-75) solid var(--color-secondary);
+                padding: var(--size-5) var(--size-7-5);
                 letter-spacing: 2px;
                 line-height: 2em;
             }
@@ -27,10 +27,10 @@
 
 .footerWrapper {
 	background-image: linear-gradient(45deg, #d6dcf9 0%, rgba(0, 0, 0, 0) 100%);
-    border-radius: var(--sizing-xs) var(--sizing-xs) 0 0;
+    border-radius: var(--size-1) var(--size-1) 0 0;
     overflow: hidden;
 	.footerContainer {
-		padding: var(--sizing-xxl) 0;
+		padding: var(--size-10) 0;
 		background-image: linear-gradient(
 			215deg,
 			#c0dff9 0%,
@@ -45,20 +45,20 @@
 			align-items: center;
 			justify-content: center;
 			h3 {
-				font: var(--font-size-medium) var(--font-family-heading);
+				font: var(--size-1-5) var(--font-family-heading);
 			}
 			hr {
-				width: var(--sizing-xxl);
+				width: var(--size-10);
 				border-top: 1px solid var(--color-black);
-				margin: var(--sizing-small) 0;
+				margin: var(--size-1-5) 0;
 			}
 			span {
-				padding-bottom: var(--sizing-xxs);
+				padding-bottom: var(--size-0-75);
 			}
 		}
 		.contactCol {
 			justify-content: space-between;
-            gap: var(--sizing-xxs);
+            gap: var(--size-0-75);
 			.row {
 				display: flex;
 				width: 100%;
@@ -66,16 +66,16 @@
 			}
 			.rowOne {
 				flex-direction: row;
-				gap: var(--sizing-xs);
+				gap: var(--size-1);
 				svg {
-					width: var(--sizing-medium);
-					height: var(--sizing-medium);
+					width: var(--size-2-5);
+					height: var(--size-2-5);
 				}
 			}
 			.rowTwo {
 				flex-direction: column;
-				padding: 0 var(--sizing-medium);
-                gap: var(--sizing-xxs);
+				padding: 0 var(--size-2-5);
+                gap: var(--size-0-75);
 				input[type="text"] {
 					border: 1px solid var(--color-black);
 					border: 1px solid;
@@ -86,14 +86,14 @@
 				}
 				input[type="text"],
 				input[type="submit"] {
-					padding: var(--sizing-xxs) 0;
+					padding: var(--size-0-75) 0;
 					text-align: center;
 				}
                 input[type="submit"] {
                     background-color: var(--color-white);
                     color: var(--color-black);
                     border: none;
-                    border-radius: var(--sizing-small);
+                    border-radius: var(--size-1-5);
                     cursor: pointer;
                 }
 			}

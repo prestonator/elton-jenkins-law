@@ -1,10 +1,10 @@
 .sectionOne {
-	margin-top: rfs(15rem);
+	margin-top: var(--size-15);
 	h1 {
-		font-size: var(--font-size-large);
+		font-size: var(--size-3-5);
 		font-weight: 500;
 		line-height: 1.2;
-		margin-bottom: rfs(2rem);
+		margin-bottom: var(--size-2);
 		text-align: center;
 		font-family: var(--font-family-fancy);
 	}
@@ -12,15 +12,15 @@
 
 .sectionTwo {
 	display: flex;
-	gap: rfs(5rem);
+	gap: var(--size-5);
 	justify-content: center;
 	align-items: center;
-	max-width: rfs(175rem);
+	max-width: var(--size-175);
 	margin: auto;
 	> .col .imageContainer {
 		position: relative;
-		width: rfs(100rem);
-		height: rfs(50rem);
+		width: var(--size-100);
+		height: var(--size-50);
 		border-radius: var(--default-border-radius);
 		overflow: hidden;
 		box-shadow: var(--blog-image-box-shadow);
@@ -31,19 +31,19 @@
 	.col:nth-child(2) {
 		display: flex;
 		flex-direction: column;
-		gap: rfs(2rem);
+		gap: var(--size-2);
 		.row {
 			display: flex;
 			flex-direction: row;
 			align-items: center;
-			gap: rfs(5rem);
+			gap: var(--size-5);
 			.iconContainer {
-				flex-basis: rfs(10rem);
+				flex-basis: var(--size-10);
 				display: flex;
 				justify-content: center;
 			}
 			.contentContainer {
-				flex-basis: rfs(50rem);
+				flex-basis: var(--size-50);
 			}
 		}
 		.authorContainer {
@@ -52,17 +52,17 @@
 				flex-direction: column;
 				span {
 					font-weight: 600;
-					margin-bottom: rfs(0.5rem);
+					margin-bottom: var(--size-0-5);
 				}
 				p {
-					font-size: rfs(0.75rem);
+					font-size: var(--size-0-75);
 				}
 			}
 			.iconContainer {
 				.avatarContainer {
 					position: relative;
-					width: rfs(7.5rem);
-					height: rfs(7.5rem);
+					width: var(--size-7-5);
+					height: var(--size-7-5);
 					background-color: var(--color-light-gray);
 					border-radius: var(--avatar-border-radius);
 					overflow: hidden;
@@ -76,31 +76,31 @@
 }
 
 .sectionThree {
-	padding-top: rfs(5rem);
+	padding-top: var(--size-5);
 	.contentContainer {
-		max-width: rfs(160rem);
+		max-width: var(--size-160);
 		margin: auto;
 		h3 {
 			font-family: var(--font-family-heading);
 			font-weight: 600;
-			font-size: var(--font-size-medium);
+			font-size: var(--size-1-5);
 			color: var(--color-gray);
-			line-height: rfs(1.5rem);
-			padding-bottom: rfs(0.5rem);
+			line-height: var(--size-1-5);
+			padding-bottom: var(--size-0-5);
 			&:not(:first-child) {
-				padding-top: var(--sizing-medium);
+				padding-top: var(--size-2-5);
 			}
 		}
 		p {
 			font-family: var(--font-family-content);
 			color: var(--color-medium-gray);
-			line-height: var(--sizing-medium);
-			padding-bottom: rfs(1rem);
-			font-size: var(--font-size-body);
+			line-height: var(--size-2-5);
+			padding-bottom: var(--size-1);
+			font-size: var(--size-1);
 		}
         ul {
-            padding-bottom: rfs(1rem);
-            padding-left: rfs(1rem);
+            padding-bottom: var(--size-1);
+            padding-left: var(--size-1);
             li {
                 list-style-type: disc;
                 list-style-position: inside;

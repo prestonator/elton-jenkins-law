@@ -3,8 +3,8 @@
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	max-width: var(--sizing-super-xxl);
-	gap: var(--sizing-xl);
+	max-width: var(--size-150);
+	gap: var(--size-7-5);
 	margin-left: auto;
 	margin-right: auto;
 	.col {
@@ -13,7 +13,7 @@
 	.imageWrapper {
 		position: relative;
 		width: 100%;
-		height: var(--sizing-super-large);
+		height: var(--size-65);
 		.image {
 			object-fit: cover;
 			box-shadow: 15px 15px 0px 0px var(--color-accent);
@@ -24,7 +24,7 @@
 		flex-direction: column;
 		text-align: center;
 		.pageHeading {
-			font: 600 var(--font-size-xl) var(--font-family-fancy);
+			font: 600 var(--size-5) var(--font-family-fancy);
 		}
 	}
 }
@@ -34,12 +34,12 @@
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	gap: var(--sizing-large);
+	gap: var(--size-5);
 	.colOne {
-		width: rfs(30rem);
+		width: var(--size-30);
 	}
 	.colTwo {
-		width: rfs(50rem);
+		width: var(--size-50);
 	}
 }
 
@@ -48,17 +48,17 @@
 	flex-direction: column;
 
 	h3 {
-		font: 400 var(--font-size-xl) var(--font-family-fancy);
+		font: 400 var(--size-5) var(--font-family-fancy);
 		line-height: 1.25em;
 	}
 	hr {
 		border-color: var(--color-accent);
-		width: var(--sizing-xxl);
+		width: var(--size-10);
 		border-top-width: 2px;
-		margin: var(--sizing-medium) 0;
+		margin: var(--size-2-5) 0;
 	}
 	p {
-		font: 500 var(--font-size-small) var(--font-family-heading);
+		font: 500 var(--size-0-75) var(--font-family-heading);
 		color: var(--color-medium-gray);
 		line-height: 2em;
 	}
@@ -67,7 +67,7 @@
 .sectionTwo .imageWrapper {
 	position: relative;
 	width: auto;
-	height: var(--sizing-super-large);
+	height: var(--size-65);
 	.image {
 		object-fit: cover;
 		border-color: var(--color-white);
@@ -79,7 +79,7 @@
 
 .sectionThree .rowTwo,
 .sectionThree .rowThree {
-	gap: var(--sizing-xxl);
+	gap: var(--size-10);
 }
 
 .sectionThree {
@@ -91,17 +91,17 @@
 	.rowOne {
 		flex-direction: column;
 		h3 {
-			font: 400 var(--font-size-xl) var(--font-family-fancy);
+			font: 400 var(--size-5) var(--font-family-fancy);
 		}
 		hr {
 			border-color: var(--color-accent);
-			width: var(--sizing-xxl);
+			width: var(--size-10);
 			border-top-width: 2px;
-			margin: var(--sizing-medium) 0;
+			margin: var(--size-2-5) 0;
 		}
 	}
 	.rowTwo {
-		margin-bottom: var(--sizing-large);
+		margin-bottom: var(--size-5);
 	}
 }
 
@@ -116,32 +116,32 @@
 
 .sectionFour .textContainer {
 	color: var(--color-white);
-	padding: var(--sizing-large) var(--sizing-xxxl) var(--sizing-large)
-		var(--sizing-large);
+	padding: var(--size-5) var(--size-25) var(--size-5)
+		var(--size-5);
 	h3 {
-		font: 400 var(--font-size-xl) var(--font-family-fancy);
+		font: 400 var(--size-5) var(--font-family-fancy);
 	}
 	hr {
 		border-color: var(--color-white);
-		width: var(--sizing-xxl);
+		width: var(--size-10);
 		border-top-width: 2px;
-		margin: var(--sizing-medium) 0;
+		margin: var(--size-2-5) 0;
 	}
 	span {
-		font: 500 var(--font-size-title) var(--font-family-heading);
+		font: 500 var(--size-2-5) var(--font-family-heading);
 		line-height: 2em;
 	}
 	p {
-		font: 500 var(--font-size-normal) var(--font-family-content);
+		font: 500 var(--size-1-25) var(--font-family-content);
 		line-height: 2em;
-		margin-bottom: var(--sizing-medium);
+		margin-bottom: var(--size-2-5);
 	}
 }
 
 .sectionFive {
-	border-right-width: var(--sizing-xxl);
+	border-right-width: var(--size-10);
     border-right-color: var(--color-accent);
-	padding-top: var(--sizing-section-padding);
+	padding-top: var(--size-15);
 }
 
 .sectionFive .rowOne {
@@ -149,13 +149,13 @@
     align-items: center;
 	flex-direction: column;
 	h3 {
-		font: 400 var(--font-size-xl) var(--font-family-fancy);
+		font: 400 var(--size-5) var(--font-family-fancy);
 	}
 	hr {
 		border-color: var(--color-accent);
-		width: var(--sizing-xxl);
+		width: var(--size-10);
 		border-top-width: 2px;
-		margin: var(--sizing-medium) 0;
+		margin: var(--size-2-5) 0;
 	}
 }
 
@@ -163,19 +163,19 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: var(--sizing-xxl);
+	gap: var(--size-10);
 }
 
 .sectionSix {
-	border-left-width: var(--sizing-xxl);
+	border-left-width: var(--size-10);
     border-left-color: var(--color-accent);
-	padding: var(--sizing-section-padding) 0;
+	padding: var(--size-15) 0;
 	display: flex;
 	flex-direction: column;
     align-items: center;
     justify-content: center;
-	gap: var(--sizing-large);
+	gap: var(--size-5);
 	h3 {
-		font: 400 var(--font-size-xl) var(--font-family-fancy);
+		font: 400 var(--size-5) var(--font-family-fancy);
 	}
 }

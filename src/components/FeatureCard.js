@@ -6,32 +6,32 @@ import Image from "next/image";
 const Card = styled.div`
 	background: var(--color-white);
 	box-shadow: var(--blog-image-box-shadow);
-	padding: var(--sizing-xl) var(--sizing-large);
-    width: var(--sizing-xxxxl);
-    height: var(--sizing-xxxxl);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	padding: var(--size-7-5) var(--size-5);
+	width: var(--size-40);
+	height: var(--size-40);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	.cardContent {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 
-        text-align: center;
+		text-align: center;
 	}
-    .cardIcon svg {
-        width: var(--sizing-large);
-        height: var(--sizing-large);
-        margin-bottom: var(--sizing-small);
-    }
-    span {
-        font: var(--font-size-normal) var(--font-family-heading);
-    }
-    p {
-        font: var(--font-size-body) var(--font-family-content);
-    }
+	.cardIcon svg {
+		width: var(--size-5);
+		height: var(--size-5);
+		margin-bottom: var(--size-1-5);
+	}
+	span {
+		font: var(--size-1-25) var(--font-family-heading);
+	}
+	p {
+		font: var(--size-1) var(--font-family-content);
+	}
 	.cardButton {
-		margin-top: var(--sizing-medium);
+		margin-top: var(--size-2-5);
 	}
 `;
 

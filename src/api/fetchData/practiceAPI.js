@@ -1,30 +1,32 @@
 import { fetchData } from "@/src/api/server";
-import { PracticeQuery, PracticeBySlugQuery } from "@/src/api/queries";
+import {
+	PracticeBySlugQuery,
+	PracticeSlugQuery,
+} from "@/src/api/queries";
 
-export const fetchPracticeData = async () => {
-	const response = await fetchData(PracticeQuery);
-	const allPracticeData = response?.data?.practiceAreas?.data ?? [];
-	return allPracticeData;
+
+export const getPracticeSlugs = async () => {
+	const response = await fetchData(PracticeSlugQuery);
+	const allPracticeSlugs = response?.data?.practiceAreas?.data ?? [];
+	return allPracticeSlugs;
 };
 
-export const fetchPracticeDataBySlug = async (slug) => {
+export const getPracticeAreaBySlug = async (slug) => {
 	const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
 
 	const res = await fetchData(PracticeBySlugQuery, {
 		filters: { slug: { contains: slug } },
-	}).catch((err) => {
-		console.error(`Error fetching page data for page ${slug}:`, err);
-		return null;
 	});
-	if (!res) return null;
+
+	if (!res.data.practiceAreas.data || !res.data.practiceAreas.data[0]) {
+		throw new Error(`No practice area data found for slug ${slug}`);
+	}
 
 	const { attributes } = res.data.practiceAreas.data[0];
-	return {
+
+	const practiceData = {
 		heroText: attributes.heroText,
 		heroImage: strapiUrl + attributes.heroImage.data.attributes.url,
-		firstHeading: attributes.firstHeading,
-		firstContent: attributes.firstContent,
-		secondHeading: attributes.secondHeading,
 		card: attributes.flipCard.map((item) => {
 			return {
 				id: item.id,
@@ -36,5 +38,20 @@ export const fetchPracticeDataBySlug = async (slug) => {
 				imageAlt: item.image.data.attributes.alternativeText,
 			};
 		}),
+		sections: attributes.sections.map((section) => {
+			return {
+				id: section.id,
+				heading: section.heading,
+				content: section.content,
+			};
+		}),
+		special: attributes.special.map((special) => {
+			return {
+				id: special.id,
+				heading: special.heading,
+			};
+		}),
 	};
+
+	return practiceData;
 };

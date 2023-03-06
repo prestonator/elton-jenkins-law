@@ -2,15 +2,15 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: rfs(3rem);
+	gap: var(--size-3);
 	.col {
-		flex-basis: rfs(75rem);
+		flex-basis: var(--size-75);
 	}
 	.colText {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: rfs(1.5rem);
+		gap: var(--size-1-5);
 		.textContainer {
 			text-align: center;
 		}
@@ -18,13 +18,13 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			gap: rfs(2rem);
+			gap: var(--size-2);
 		}
 	}
 	.colImage {
 		.imageWrapper {
 			width: 100%;
-			height: rfs(50rem);
+			height: var(--size-50);
 			position: relative;
 			img {
 				object-fit: cover;
@@ -35,18 +35,18 @@
 }
 
 .sectionTwo {
-	padding-top: rfs(15rem);
+	padding-top: var(--size-15);
 	.modalContainer {
 		background-color: var(--color-white);
 		box-shadow: var(--blog-image-box-shadow);
-		width: rfs(100rem);
+		width: var(--size-100);
 		margin: auto;
 		.textContainer {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			padding: rfs(10rem) 0;
-			gap: rfs(2rem);
+			padding: var(--size-10) 0;
+			gap: var(--size-2);
 			.btnContainer {
 				display: inline;
 			}
@@ -55,48 +55,48 @@
 }
 
 .subTitle {
-	font: 700 var(--font-size-medium) var(--font-family-heading);
+	font: 700 var(--size-1-5) var(--font-family-heading);
 	color: var(--color-accent);
 	letter-spacing: 2px;
 }
 
 .title {
-	font: var(--font-size-xl) "Cormorant Garamond";
-	margin-bottom: rfs(2rem);
+	font: var(--size-5) "Cormorant Garamond";
+	margin-bottom: var(--size-2);
 }
 
 .sectionLine {
-	margin: rfs(5rem) auto;
+	margin: var(--size-5) auto;
 	border-color: black;
-	width: rfs(25rem);
+	width: var(--size-25);
 }
 
 .sectionThree {
 	.row {
 		display: flex;
 		justify-content: center;
-		gap: var(--sizing-medium);
+		gap: var(--size-2-5);
 	}
 }
 
 .sectionFour,
 .sectionFive {
-	padding-top: var(--sizing-large);
-	border-left: var(--sizing-xs) solid var(--color-accent);
-	border-right: var(--sizing-xs) solid var(--color-accent);
+	padding-top: var(--size-5);
+	border-left: var(--size-1) solid var(--color-accent);
+	border-right: var(--size-1) solid var(--color-accent);
 	.rowOne h2 {
 		text-align: center;
-		font: var(--font-size-large) var(--font-family-fancy);
+		font: var(--size-3-5) var(--font-family-fancy);
 	}
 	hr {
 		border-color: black;
-		width: rfs(25rem);
-		margin: var(--sizing-medium) auto;
+		width: var(--size-25);
+		margin: var(--size-2-5) auto;
 	}
 	.rowTwo {
 		display: flex;
 		justify-content: center;
-		gap: var(--sizing-small);
+		gap: var(--size-1-5);
 	}
 }
 

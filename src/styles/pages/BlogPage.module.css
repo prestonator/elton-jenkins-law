@@ -4,31 +4,31 @@
 	.row {
 		display: flex;
 		flex-direction: column;
-		padding: rfs(20rem) 0 rfs(20rem) rfs(50rem);
+		padding: var(--size-20) 0 var(--size-20) var(--size-50);
 		.textBlurb {
-			width: rfs(35rem);
+			width: var(--size-35);
 			font-weight: 700;
 			display: flex;
 			flex-direction: column;
-			gap: rfs(1rem);
+			gap: var(--size-1);
 			h1 {
 				color: var(--color-secondary);
 				font-family: var(--font-family-heading);
 				text-transform: uppercase;
-				font-size: var(--font-size-medium);
+				font-size: var(--size-1-5);
 			}
 			span {
 				color: var(--color-white);
 				font-family: var(--font-family-fancy);
 				text-transform: uppercase;
-				font-size: var(--font-size-title);
+				font-size: var(--size-2-5);
 				word-wrap: break-word;
 			}
 			p {
 				color: var(--color-white);
 				font-family: var(--font-family-content);
-				font-size: var(--font-size-body);
-				line-height: rfs(2rem);
+				font-size: var(--size-1);
+				line-height: var(--size-2);
 				letter-spacing: 1px;
 			}
 		}
@@ -38,13 +38,13 @@
 .sectionTwo {
 	display: flex;
 	justify-content: center;
-	gap: rfs(5rem);
+	gap: var(--size-5);
 	.blogCol:not(:last-child) {
-		flex-basis: rfs(40rem);
+		flex-basis: var(--size-40);
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: rfs(5rem);
+		gap: var(--size-5);
 	}
 	.blogCol:nth-child(1) {
 		margin-top: rfs(-5rem);
@@ -53,7 +53,7 @@
 		margin-top: rfs(-2.5rem);
 	}
 	.blogCol:nth-child(3) {
-		flex-basis: rfs(30rem);
+		flex-basis: var(--size-30);
 		display: flex;
 		flex-direction: column;
 		align-items: stretch;
@@ -62,7 +62,7 @@
 				position: relative;
 				input[type="text"] {
 					width: 100%;
-					padding: rfs(0.5rem);
+					padding: var(--size-0-5);
 					border: 1px solid var(--color-light-gray);
 				}
 				input[type="submit"] {
@@ -70,7 +70,7 @@
 					right: 0;
 					background-color: var(--color-light-gray);
 					height: 100%;
-					padding: 0 rfs(1rem);
+					padding: 0 var(--size-1);
 				}
 			}
 		}

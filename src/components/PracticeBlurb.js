@@ -7,26 +7,26 @@ const ServiceBlurb = styled.div`
 	flex-direction: column;
 	align-items: ${(props) => props.alignItems || "center"};
 	justify-content: center;
-	flex-basis: var(--sizing-xxxxl);
+	flex-basis: var(--size-40);
 	.icon {
 		color: ${(props) => props.iconColor || "var(--color-accent)"};
-		flex-basis: var(--sizing-large);
-		font: 500 var(--font-size-title) var(--font-family-heading);
+		flex-basis: var(--size-5);
+		font: 500 var(--size-2-5) var(--font-family-heading);
 		svg {
-			width: var(--font-size-large);
-			height: var(--font-size-large);
+			width: var(--size-3-5);
+			height: var(--size-3-5);
 		}
 	}
 	.heading {
-		font: 500 var(--font-size-medium) var(--font-family-heading);
-		flex-basis: var(--sizing-medium);
+		font: 500 var(--size-1-5) var(--font-family-heading);
+		flex-basis: var(--size-2-5);
 	}
 	.content {
-		font: 500 var(--font-size-body) var(--font-family-content);
+		font: 500 var(--size-1) var(--font-family-content);
 		text-align: ${(props) => props.textAlign || "center"};
 		line-height: 1.8em;
 		color: var(--color-medium-gray);
-		flex-basis: ${(props) => props.flexBasis || "var(--sizing-xxl)"};
+		flex-basis: ${(props) => props.flexBasis || "var(--size-10)"};
 	}
 `;
 

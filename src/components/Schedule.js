@@ -4,12 +4,12 @@ import styled from "styled-components";
 const ScheduleForm = styled.div`
 	width: 100%;
 	height: 100%;
-    background-color: var(--color-white);
-	padding-top: var(--sizing-small);
-    .title h2 {
-        font: var(--font-size-title) var(--font-family-fancy);
-        text-align: center;
-    }
+	background-color: var(--color-white);
+	padding-top: var(--size-1-5);
+	.title h2 {
+		font: var(--size-2-5) var(--font-family-fancy);
+		text-align: center;
+	}
 `;
 
 const Scheduler = () => {

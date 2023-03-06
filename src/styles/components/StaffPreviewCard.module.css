@@ -1,6 +1,6 @@
 .staffCard {
 	position: relative;
-    width: var(--sizing-super);
+    width: var(--size-45);
 	height: auto;
 	cursor: pointer;
 	background-color: var(--color-white);
@@ -17,7 +17,7 @@
 .staffCardImage {
 	position: relative;
 	width: 100%;
-	height: rfs(30rem);
+	height: var(--size-30);
 	img {
 		object-fit: cover;
 	}
@@ -34,12 +34,12 @@
 }
 .staffCardPosition {
 	font-style: italic;
-	font-size: var(--font-size-body);
+	font-size: var(--size-1);
 }
 .staffCardName {
 	font-weight: 500;
 	letter-spacing: 1px;
-	font-size: var(--font-size-title);
+	font-size: var(--size-2-5);
 	font-family: var(--font-family-fancy);
 }
 
@@ -65,7 +65,7 @@
 }
 
 .staffCardOverlayContent {
-	padding: var(--sizing-medium) var(--sizing-small);
+	padding: var(--size-2-5) var(--size-1-5);
     height: 100%;
     display: flex;
     text-align: center;
@@ -73,9 +73,9 @@
 }
 
 .staffCardBio {
-	margin-bottom: var(--sizing-xl);
-    margin-top: var(--sizing-small);
-    font: 500 var(--font-size-body) var(--font-family-content);
+	margin-bottom: var(--size-7-5);
+    margin-top: var(--size-1-5);
+    font: 500 var(--size-1) var(--font-family-content);
     flex-basis: 45%;
 }
 
