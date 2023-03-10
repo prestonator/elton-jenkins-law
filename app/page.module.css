@@ -13,6 +13,15 @@
 		gap: var(--size-1-5);
 		.textContainer {
 			text-align: center;
+			h1 {
+				font: var(--size-5) "Cormorant Garamond";
+				margin-bottom: var(--size-2);
+			}
+			p {
+				font: 700 var(--size-1-5) var(--font-family-heading);
+				color: var(--color-accent);
+				letter-spacing: 2px;
+			}
 		}
 		.btnContainer {
 			display: flex;
@@ -54,17 +63,6 @@
 	}
 }
 
-.subTitle {
-	font: 700 var(--size-1-5) var(--font-family-heading);
-	color: var(--color-accent);
-	letter-spacing: 2px;
-}
-
-.title {
-	font: var(--size-5) "Cormorant Garamond";
-	margin-bottom: var(--size-2);
-}
-
 .sectionLine {
 	margin: var(--size-5) auto;
 	border-color: black;
@@ -72,11 +70,8 @@
 }
 
 .sectionThree {
-	.row {
-		display: flex;
-		justify-content: center;
-		gap: var(--size-2-5);
-	}
+	max-width: var(--size-175);
+	margin: auto;
 }
 
 .sectionFour,
@@ -99,4 +94,3 @@
 		gap: var(--size-1-5);
 	}
 }
-

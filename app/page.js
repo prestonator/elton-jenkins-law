@@ -1,51 +1,42 @@
 // app/home.js
+import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
 import ButtonPrimary from "@/src/components/PrimaryButton";
-import { fetchStaffDataBySlug } from "@/src/api/fetchData/staffAPI";
-import { getMediaData } from "@/src/api/fetchData/fetchMedia";
 import FeatureCard from "@/src/components/FeatureCard";
 import { BsTelephone, BsCashStack, BsHouseDoor } from "react-icons/bs";
 import { GiHandcuffs } from "react-icons/gi";
 import { MdFamilyRestroom } from "react-icons/md";
 import { AiOutlineStop, AiOutlineWarning } from "react-icons/ai";
-import TeamCardComponent from "@/src/components/TeamCard";
+import { fetchHomePageData } from "@/src/api/fetchData/homeAPI";
+import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
+import StaffPreview from "@/src/components/staffPreview";
 
 export default async function Home() {
-	const [tableData] = await getMediaData([8]);
-	const { fullUrl: tableUrl, altText: tableAlt } = tableData;
-	const staffSlugs = ["elton-jenkins", "eric-kroier", "greg-milstead"];
-	const staffMembers = await Promise.all(staffSlugs.map(fetchStaffDataBySlug));
-
+	const homePageData = await fetchHomePageData();
 	return (
 		<>
 			<section className={`${styles.sectionOne}`} id="section">
 				<div className={`${styles.col} ${styles.colText}`}>
 					<div className={`${styles.textContainer}`}>
-						<span className={`${styles.subTitle}`}>
-							Results That Speak for Themselves
-						</span>
-						<h1 className={`${styles.title}`}>
-							Proudly
-							<br />
-							Serving
-							<br />
-							Oklahoma
-						</h1>
-						<span className={`${styles.subTitle}`}>
-							In Criminal & Family Law
-						</span>
+						<ReactMarkdown
+							rehypePlugins={[rehypeRaw]}
+						>{`${homePageData.title}`}</ReactMarkdown>
 					</div>
 					<div className={`${styles.btnContainer}`}>
-						<ButtonPrimary href="/about">Learn More</ButtonPrimary>
-						<ButtonPrimary href="/contact">Contact Us</ButtonPrimary>
+						{homePageData.heroButton.map((item) => (
+							<ButtonPrimary key={item.label} href={item.href}>
+								{item.label}
+							</ButtonPrimary>
+						))}
 					</div>
 				</div>
 				<div className={`${styles.col} ${styles.colImage}`}>
 					<div className={`${styles.imageWrapper}`}>
 						<Image
-							src={tableUrl}
-							alt={tableAlt}
+							src={homePageData.heroImageUrl}
+							alt={homePageData.heroImageAlt}
 							fill
 							sizes="(max-width: 500px) 100vw, (max-width: 1000px) 50vw, auto"
 						/>
@@ -64,24 +55,20 @@ export default async function Home() {
 				</div>
 			</section>
 			<hr className={`${styles.sectionLine}`} />
-			<section className={`${styles.sectionThree} ${styles.egg}`}>
-				<div className={`${styles.col} ${styles.wrapper}`}>
-					<div className={styles.row}>
-						{staffMembers.map((staff) => (
-							<TeamCardComponent
-								key={staff.staffName}
-								headshot={staff.headshotUrl}
-								alt={staff.headshotAlt}
-								name={staff.staffName}
-								position={staff.staffPosition}
-								shortBio={staff.staffShortBio}
-								bio={staff.staffBio}
-								phone={staff.staffPhone}
-								email={staff.staffEmail}
-							/>
-						))}
-					</div>
-				</div>
+			<section className={`${styles.sectionThree}`}>
+				{homePageData.staff.map((item, index) => (
+					<StaffPreview
+						key={item.id}
+						socialIcons={item.socialIcons}
+						avatarUrl={item.avatarUrl}
+						avatarAlt={item.avatarAlt}
+						info={item.info}
+						isEven={index % 2 === 0}
+						index={index}
+						totalItems={homePageData.staff.length}
+						button={item.button}
+					/>
+				))}
 			</section>
 			<section className={`${styles.sectionFour}`}>
 				<div className={`${styles.rowOne}`}>

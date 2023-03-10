@@ -21,6 +21,7 @@
 	--font-family-btn: 'Saira Extra Condensed', sans-serif;
 	--default-border-radius: 10px;
 	--avatar-border-radius: 50%;
+	--avatar-box-shadow: rgb(0 0 0 / 30%) 0px 0px 40px 0px;
 	--blog-image-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
 		rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 	--default-hover-transition: all 0.3s ease-in-out;

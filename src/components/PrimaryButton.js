@@ -11,11 +11,11 @@ const Button = styled.button`
 	background: transparent;
 	transition: var(--default-hover-transition);
 	font: 600 var(--size-1-5) var(--font-family-btn);
-	letter-sizing: 1px;
+	letter-spacing: 1px;
 	text-transform: uppercase;
 	padding: var(--size-0-75) var(--size-2-5);
-	position: relative;
-	width: fit-content;
+	position: ${(props) => props.position || "relative"};
+	width: ${(props) => props.btnWidth || "fit-content"};
 	svg {
 		position: absolute;
 		opacity: 0;
@@ -49,6 +49,8 @@ const ButtonPrimary = (props) => {
 				color={props.color}
 				hoverColor={props.hoverColor}
 				hoverBackground={props.hoverBackground}
+				position={props.position}
+				btnWidth={props.btnWidth}
 			>
 				{props.children}
 				<BsArrowRight />

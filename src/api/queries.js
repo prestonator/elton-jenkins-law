@@ -341,3 +341,54 @@ query PracticeBySlugQuery($filters: PracticeAreaFiltersInput) {
   }
 }
 `;
+
+// home page queries
+
+export const HomePageQuery = `
+query HomePage {
+  homePage {
+    data {
+      attributes {
+        title
+        heroImage {
+          data {
+            attributes {
+              url
+              alternativeText
+            }
+          }
+        }
+        button {
+          link {
+            href
+            label
+            id
+          }
+        }
+        staffSection {
+          id
+          info
+          button {
+            label
+            href
+          }
+          avatar {
+            data {
+              attributes {
+                url
+                alternativeText
+              }
+            }
+          }
+          socialIcons {
+            id
+            href
+            icon
+          }
+        }
+      }
+    }
+  }
+}
+
+`;
