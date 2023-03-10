@@ -70,7 +70,7 @@
 
 .content blockquote {
 	position: relative;
-	width: var(--size-60);
+	width: var(--size-70);
 	max-width: 100%;
 	padding: var(--size-3-5) var(--size-2) var(--size-7-5) var(--size-2);
 	line-height: 1.7em;
