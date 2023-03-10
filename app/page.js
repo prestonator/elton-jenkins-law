@@ -1,4 +1,3 @@
-// app/home.js
 import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
@@ -13,69 +12,77 @@ import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import StaffPreview from "@/src/components/staffPreview";
 
+async function getData() {
+	const response = await fetchHomePageData();
+	return response;
+}
+
 export default async function Home() {
-	const homePageData = await fetchHomePageData();
+	const homePageData = await getData();
+	const { title, heroButton, heroImageUrl, heroImageAlt, staff } = homePageData;
 	return (
 		<>
-			<section className={`${styles.sectionOne}`} id="section">
+			<section className={styles.sectionOne} id="section">
 				<div className={`${styles.col} ${styles.colText}`}>
-					<div className={`${styles.textContainer}`}>
+					<div className={styles.textContainer}>
 						<ReactMarkdown
 							rehypePlugins={[rehypeRaw]}
-						>{`${homePageData.title}`}</ReactMarkdown>
+						>{`${title}`}</ReactMarkdown>
 					</div>
-					<div className={`${styles.btnContainer}`}>
-						{homePageData.heroButton.map((item) => (
-							<ButtonPrimary key={item.label} href={item.href}>
-								{item.label}
-							</ButtonPrimary>
-						))}
+					<div className={styles.btnContainer}>
+						{heroButton &&
+							heroButton.map((item) => (
+								<ButtonPrimary key={item.label} href={item.href}>
+									{item.label}
+								</ButtonPrimary>
+							))}
 					</div>
 				</div>
 				<div className={`${styles.col} ${styles.colImage}`}>
-					<div className={`${styles.imageWrapper}`}>
+					<div className={styles.imageWrapper}>
 						<Image
-							src={homePageData.heroImageUrl}
-							alt={homePageData.heroImageAlt}
+							src={heroImageUrl}
+							alt={heroImageAlt}
 							fill
 							sizes="(max-width: 500px) 100vw, (max-width: 1000px) 50vw, auto"
 						/>
 					</div>
 				</div>
 			</section>
-			<section className={`${styles.sectionTwo}`}>
-				<div className={`${styles.modalContainer}`}>
-					<div className={`${styles.textContainer}`}>
-						<span className={`${styles.subTitle}`}>Win in court today</span>
-						<h2 className={`${styles.title}`}>Schedule a Free Consultation</h2>
-						<div className={`${styles.btnContainer}`}>
+			<section className={styles.sectionTwo}>
+				<div className={styles.modalContainer}>
+					<div className={styles.textContainer}>
+						<span className={styles.subTitle}>Win in court today</span>
+						<h2 className={styles.title}>Schedule a Free Consultation</h2>
+						<div className={styles.btnContainer}>
 							<ButtonPrimary href="/contact">Get Started</ButtonPrimary>
 						</div>
 					</div>
 				</div>
 			</section>
-			<hr className={`${styles.sectionLine}`} />
-			<section className={`${styles.sectionThree}`}>
-				{homePageData.staff.map((item, index) => (
-					<StaffPreview
-						key={item.id}
-						socialIcons={item.socialIcons}
-						avatarUrl={item.avatarUrl}
-						avatarAlt={item.avatarAlt}
-						info={item.info}
-						isEven={index % 2 === 0}
-						index={index}
-						totalItems={homePageData.staff.length}
-						button={item.button}
-					/>
-				))}
+			<hr className={styles.sectionLine} />
+			<section className={styles.sectionThree}>
+				{staff &&
+					staff.map((item, index) => (
+						<StaffPreview
+							key={item.id}
+							socialIcons={item.socialIcons}
+							avatarUrl={item.avatarUrl}
+							avatarAlt={item.avatarAlt}
+							info={item.info}
+							isEven={index % 2 === 0}
+							index={index}
+							totalItems={staff.length}
+							button={item.button}
+						/>
+					))}
 			</section>
-			<section className={`${styles.sectionFour}`}>
-				<div className={`${styles.rowOne}`}>
+			<section className={styles.sectionFour}>
+				<div className={styles.rowOne}>
 					<h2>Why Choose Us?</h2>
 				</div>
 				<hr />
-				<div className={`${styles.rowTwo}`}>
+				<div className={styles.rowTwo}>
 					<FeatureCard
 						href="/contact"
 						icon={<BsTelephone />}
@@ -97,17 +104,17 @@ export default async function Home() {
 					<FeatureCard
 						href="/contact"
 						icon={<BsCashStack />}
-						heading="Payment Plans Avaliable"
+						heading="Payment Plans Available"
 						content="We’ll work with you"
 					/>
 				</div>
 			</section>
-			<section className={`${styles.sectionFive}`}>
-				<div className={`${styles.rowOne}`}>
+			<section className={styles.sectionFive}>
+				<div className={styles.rowOne}>
 					<h2>Practice Areas</h2>
 				</div>
 				<hr />
-				<div className={`${styles.rowTwo}`}>
+				<div className={styles.rowTwo}>
 					<FeatureCard
 						href="/criminal-defense"
 						icon={<AiOutlineStop />}

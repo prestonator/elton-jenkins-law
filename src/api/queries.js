@@ -390,5 +390,4 @@ query HomePage {
     }
   }
 }
-
 `;

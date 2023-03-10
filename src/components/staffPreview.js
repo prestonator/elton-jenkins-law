@@ -14,12 +14,12 @@ const StaffPreview = (props) => {
 	// Define a custom list item component that includes the icon
 	const CustomListItem = ({ children }) => {
 		// Check if the list item contains a link
-		const hasLink = React.Children.toArray(children).some((child) => {
-			return child.type === "a";
-		});
+		const containsLink = React.Children.toArray(children).some(
+			(child) => child.type === "a"
+		);
 
 		// Render an icon if the list item contains a link
-		if (hasLink) {
+		if (containsLink) {
 			return (
 				<li>
 					{children}
@@ -32,11 +32,15 @@ const StaffPreview = (props) => {
 	};
 
 	// Define a custom component for the blockquote element
-	const CustomBlockquote = ({ children }) => {
+	const StaffPreviewBlockquote = ({ children }) => {
 		return (
 			<blockquote>
 				{children}
-				<ButtonPrimary href={props.button.href} position="absolute" btnWidth="100%">
+				<ButtonPrimary
+					href={props.button.href}
+					position="absolute"
+					btnWidth="100%"
+				>
 					{props.button.label}
 				</ButtonPrimary>
 			</blockquote>
@@ -69,7 +73,10 @@ const StaffPreview = (props) => {
 				</div>
 				<div className={`${styles.content} ${containerClassName}`}>
 					<ReactMarkdown
-						components={{ li: CustomListItem, blockquote: CustomBlockquote }}
+						components={{
+							li: CustomListItem,
+							blockquote: StaffPreviewBlockquote,
+						}}
 					>
 						{props.info}
 					</ReactMarkdown>
