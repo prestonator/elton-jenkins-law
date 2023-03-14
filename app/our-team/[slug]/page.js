@@ -1,4 +1,7 @@
-import { fetchStaffData, fetchStaffDataBySlug } from "@/src/api/fetchData/staffAPI";
+import {
+	fetchStaffData,
+	fetchStaffDataBySlug,
+} from "@/src/api/fetchData/staffAPI";
 import Image from "next/image";
 import styles from "@/src/styles/pages/TeamMember.module.css";
 import TabbedContainer from "@/src/components/TabContainer";
@@ -13,6 +16,17 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }) {
 	const memberRes = await fetchStaffDataBySlug(params.slug);
+
+	// Create an array of objects containing the title and content for each tab
+	const tabs = [
+		{ title: withSpace(memberRes.tabOne), content: memberRes.tabOneContent },
+		{ title: withSpace(memberRes.tabTwo), content: memberRes.tabTwoContent },
+		{
+			title: withSpace(memberRes.tabThree),
+			content: memberRes.tabThreeContent,
+		},
+		{ title: withSpace(memberRes.tabFour), content: memberRes.tabFourContent },
+	];
 
 	return (
 		<>
@@ -43,17 +57,7 @@ export default async function Page({ params }) {
 				</div>
 			</section>
 			<section>
-				<TabbedContainer
-					tab={1}
-					tabOne={withSpace(memberRes.tabOne)}
-					tabTwo={withSpace(memberRes.tabTwo)}
-					tabThree={withSpace(memberRes.tabThree)}
-					tabFour={withSpace(memberRes.tabFour)}
-					tab1Content={memberRes.tabOneContent}
-					tab2Content={memberRes.tabTwoContent}
-					tab3Content={memberRes.tabThreeContent}
-					tab4Content={memberRes.tabFourContent}
-				/>
+				<TabbedContainer tab={1} tabs={tabs} />
 			</section>
 		</>
 	);
