@@ -59,6 +59,13 @@
 			.btnContainer {
 				display: inline;
 			}
+			.subTitle {
+				font: 700 var(--size-1) var(--font-family-heading);
+				color: var(--color-accent);
+			}
+			.title {
+				font: var(--size-3) var(--font-family-fancy);
+			}
 		}
 	}
 }

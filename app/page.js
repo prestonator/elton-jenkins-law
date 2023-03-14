@@ -10,7 +10,7 @@ import { AiOutlineStop, AiOutlineWarning } from "react-icons/ai";
 import { fetchHomePageData } from "@/src/api/fetchData/homeAPI";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
-import StaffPreview from "@/src/components/staffPreview";
+import StaffPreview from "./test/sectionScroll";
 
 async function getData() {
 	const response = await fetchHomePageData();

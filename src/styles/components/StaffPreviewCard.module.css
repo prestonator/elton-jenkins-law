@@ -1,89 +1,127 @@
-.staffCard {
-	position: relative;
-    width: var(--size-45);
-	height: auto;
-	cursor: pointer;
-	background-color: var(--color-white);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    box-shadow: var(--blog-image-box-shadow);
-    &:hover .staffCardContent {
-        background-color: var(--color-accent);
-        color: var(--color-white);
-    }
+.staffPreviewContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--size-10);
 }
 
-.staffCardImage {
+.staffPreviewContainer.even {
+	flex-direction: row;
+}
+
+.staffPreviewContainer.odd {
+	flex-direction: row-reverse;
+}
+
+.divider {
+	margin: var(--size-5) auto;
+	width: var(--size-5);
+	border: 5px solid var(--color-accent);
+}
+
+.colOne {
+	display: flex;
+	align-items: center;
+	gap: var(--size-2-5);
+}
+
+.colOne.even {
+	flex-direction: row;
+}
+
+.colOne.odd {
+	flex-direction: row-reverse;
+}
+
+.iconContainer {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-1-25);
+}
+
+.icon {
+	width: var(--size-3);
+	height: var(--size-3);
+	color: var(--color-accent);
+}
+
+.avatarWrapper {
 	position: relative;
-	width: 100%;
+	width: var(--size-30);
 	height: var(--size-30);
-	img {
-		object-fit: cover;
+	border-radius: var(--avatar-border-radius);
+	overflow: hidden;
+	box-shadow: var(--avatar-box-shadow);
+}
+
+.avatar {
+	object-fit: cover;
+}
+
+.content {
+	box-shadow: rgb(0 0 0 / 20%) 0px 0px 5px 0px;
+}
+
+.content blockquote button {
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.content blockquote {
+	position: relative;
+	width: var(--size-70);
+	max-width: 100%;
+	padding: var(--size-3-5) var(--size-2) var(--size-7-5) var(--size-2);
+	line-height: 1.7em;
+	color: var(--color-medium-gray);
+	background-color: #fcfcfc;
+	h3 {
+		font: 500 var(--size-3-5) var(--font-family-fancy);
+		color: var(--color-black);
+		margin-bottom: var(--size-1);
 	}
 }
 
-.staffCardContent {
-	height: auto;
-	padding: 20px;
+.content blockquote p {
+	margin-bottom: var(--size-2);
+}
+
+.content blockquote ul li {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: center;
-	justify-content: center;
-	transition: 0.3s all 0s ease-in-out;
-}
-.staffCardPosition {
-	font-style: italic;
-	font-size: var(--size-1);
-}
-.staffCardName {
-	font-weight: 500;
-	letter-spacing: 1px;
-	font-size: var(--size-2-5);
-	font-family: var(--font-family-fancy);
+	gap: var(--size-0-5);
 }
 
-.staffCardOverlay {
-	position: absolute;
-	top: 100%;
-	left: 0;
-	width: 100%;
-	max-height: 0;
-	background-color: var(--color-accent);
+.content.even blockquote {
+	text-align: left;
+	border-left: 3px solid var(--color-accent);
+}
+
+.content.odd blockquote {
+	text-align: right;
+	border-right: 3px solid var(--color-accent);
+}
+
+.content blockquote ul {
+	display: flex;
+	flex-direction: row;
+	gap: var(--size-1);
+    flex-wrap: wrap;
+}
+
+.content.even blockquote ul {
+	justify-content: flex-start;
+}
+
+.content.odd blockquote ul {
+	justify-content: flex-end;
+}
+
+.content blockquote ul li {
+	background: var(--color-accent);
 	color: var(--color-white);
-	transition: 0.3s all 0s ease-in-out;
-	overflow: hidden;
-	opacity: 0;
-    
-}
-
-.staffCardOverlay.active {
-	top: 0;
-	opacity: 1;
-	height: 100%;
-	max-height: 100%;
-}
-
-.staffCardOverlayContent {
-	padding: var(--size-2-5) var(--size-1-5);
-    height: 100%;
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-}
-
-.staffCardBio {
-	margin-bottom: var(--size-7-5);
-    margin-top: var(--size-1-5);
-    font: 500 var(--size-1) var(--font-family-content);
-    flex-basis: 45%;
-}
-
-.staffCardFunFact {
-	margin-bottom: 0;
-}
-
-.staffCardGetToKnow {
-	margin-top: 10px;
-	font-style: italic;
+	padding: 0.25rem var(--size-1);
+	border-radius: var(--size-1);
 }
